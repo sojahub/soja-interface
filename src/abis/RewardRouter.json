@@ -44,7 +44,7 @@
           "type": "uint256"
         }
       ],
-      "name": "StakeGmx",
+      "name": "StakeFmx",
       "type": "event"
     },
     {
@@ -88,7 +88,7 @@
           "type": "uint256"
         }
       ],
-      "name": "UnstakeGmx",
+      "name": "UnstakeFmx",
       "type": "event"
     },
     {
@@ -130,14 +130,14 @@
           "type": "uint256[]"
         }
       ],
-      "name": "batchStakeGmxForAccount",
+      "name": "batchStakeFmxForAccount",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "inputs": [],
-      "name": "bnGmx",
+      "name": "bnFmx",
       "outputs": [
         {
           "internalType": "address",
@@ -150,7 +150,7 @@
     },
     {
       "inputs": [],
-      "name": "bonusGmxTracker",
+      "name": "bonusFmxTracker",
       "outputs": [
         {
           "internalType": "address",
@@ -170,7 +170,7 @@
     },
     {
       "inputs": [],
-      "name": "claimEsGmx",
+      "name": "claimEsFmx",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -204,7 +204,7 @@
     },
     {
       "inputs": [],
-      "name": "esGmx",
+      "name": "esFmx",
       "outputs": [
         {
           "internalType": "address",
@@ -230,7 +230,7 @@
     },
     {
       "inputs": [],
-      "name": "feeGmxTracker",
+      "name": "feeFmxTracker",
       "outputs": [
         {
           "internalType": "address",
@@ -282,7 +282,7 @@
     },
     {
       "inputs": [],
-      "name": "gmx",
+      "name": "fmx",
       "outputs": [
         {
           "internalType": "address",
@@ -295,7 +295,7 @@
     },
     {
       "inputs": [],
-      "name": "gmxVester",
+      "name": "fmxVester",
       "outputs": [
         {
           "internalType": "address",
@@ -323,22 +323,22 @@
       "inputs": [
         {
           "internalType": "bool",
-          "name": "_shouldClaimGmx",
+          "name": "_shouldClaimFmx",
           "type": "bool"
         },
         {
           "internalType": "bool",
-          "name": "_shouldStakeGmx",
+          "name": "_shouldStakeFmx",
           "type": "bool"
         },
         {
           "internalType": "bool",
-          "name": "_shouldClaimEsGmx",
+          "name": "_shouldClaimEsFmx",
           "type": "bool"
         },
         {
           "internalType": "bool",
-          "name": "_shouldStakeEsGmx",
+          "name": "_shouldStakeEsFmx",
           "type": "bool"
         },
         {
@@ -371,17 +371,17 @@
         },
         {
           "internalType": "address",
-          "name": "_gmx",
+          "name": "_fmx",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_esGmx",
+          "name": "_esFmx",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_bnGmx",
+          "name": "_bnFmx",
           "type": "address"
         },
         {
@@ -391,17 +391,17 @@
         },
         {
           "internalType": "address",
-          "name": "_stakedGmxTracker",
+          "name": "_stakedFmxTracker",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_bonusGmxTracker",
+          "name": "_bonusFmxTracker",
           "type": "address"
         },
         {
           "internalType": "address",
-          "name": "_feeGmxTracker",
+          "name": "_feeFmxTracker",
           "type": "address"
         },
         {
@@ -421,7 +421,7 @@
         },
         {
           "internalType": "address",
-          "name": "_gmxVester",
+          "name": "_fmxVester",
           "type": "address"
         },
         {
@@ -559,7 +559,7 @@
           "type": "uint256"
         }
       ],
-      "name": "stakeEsGmx",
+      "name": "stakeEsFmx",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -572,7 +572,7 @@
           "type": "uint256"
         }
       ],
-      "name": "stakeGmx",
+      "name": "stakeFmx",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -590,7 +590,7 @@
           "type": "uint256"
         }
       ],
-      "name": "stakeGmxForAccount",
+      "name": "stakeFmxForAccount",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -610,7 +610,7 @@
     },
     {
       "inputs": [],
-      "name": "stakedGmxTracker",
+      "name": "stakedFmxTracker",
       "outputs": [
         {
           "internalType": "address",
@@ -692,7 +692,7 @@
           "type": "uint256"
         }
       ],
-      "name": "unstakeEsGmx",
+      "name": "unstakeEsFmx",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -705,7 +705,7 @@
           "type": "uint256"
         }
       ],
-      "name": "unstakeGmx",
+      "name": "unstakeFmx",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"

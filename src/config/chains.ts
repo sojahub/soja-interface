@@ -108,7 +108,7 @@ const constants = {
   },
 };
 
-const ALCHEMY_WHITELISTED_DOMAINS = ["gmx.io", "app.gmx.io"];
+const ALCHEMY_WHITELISTED_DOMAINS = ["fmx.io", "app.fmx.io"];
 
 export const ARBITRUM_RPC_PROVIDERS = [getDefaultArbitrumRpcUrl()];
 export const AVALANCHE_RPC_PROVIDERS = ["https://api.avax.network/ext/bc/C/rpc"];

@@ -332,46 +332,46 @@ export const TOKENS: { [chainId: number]: Token[] } = {
 export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
   [ARBITRUM]: [
     {
-      name: "GMX",
-      symbol: "GMX",
-      address: getContract(ARBITRUM, "GMX"),
+      name: "FMX",
+      symbol: "FMX",
+      address: getContract(ARBITRUM, "FMX"),
       decimals: 18,
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     {
-      name: "Escrowed GMX",
-      symbol: "esGMX",
-      address: getContract(ARBITRUM, "ES_GMX"),
+      name: "Escrowed FMX",
+      symbol: "esFMX",
+      address: getContract(ARBITRUM, "ES_FMX"),
       decimals: 18,
     },
     {
-      name: "GMX LP",
+      name: "FMX LP",
       symbol: "GLP",
       address: getContract(ARBITRUM, "GLP"),
       decimals: 18,
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/fmx-io/fmx-assets/blob/main/FMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   ],
   [AVALANCHE]: [
     {
-      name: "GMX",
-      symbol: "GMX",
-      address: getContract(AVALANCHE, "GMX"),
+      name: "FMX",
+      symbol: "FMX",
+      address: getContract(AVALANCHE, "FMX"),
       decimals: 18,
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     {
-      name: "Escrowed GMX",
-      symbol: "esGMX",
-      address: getContract(AVALANCHE, "ES_GMX"),
+      name: "Escrowed FMX",
+      symbol: "esFMX",
+      address: getContract(AVALANCHE, "ES_FMX"),
       decimals: 18,
     },
     {
-      name: "GMX LP",
+      name: "FMX LP",
       symbol: "GLP",
       address: getContract(ARBITRUM, "GLP"),
       decimals: 18,
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/fmx-io/fmx-assets/blob/main/FMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   ],
 };
@@ -379,44 +379,44 @@ export const ADDITIONAL_TOKENS: { [chainId: number]: Token[] } = {
 export const PLATFORM_TOKENS: { [chainId: number]: { [symbol: string]: Token } } = {
   [ARBITRUM]: {
     // arbitrum
-    GMX: {
-      name: "GMX",
-      symbol: "GMX",
+    FMX: {
+      name: "FMX",
+      symbol: "FMX",
       decimals: 18,
-      address: getContract(ARBITRUM, "GMX"),
+      address: getContract(ARBITRUM, "FMX"),
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     GLP: {
-      name: "GMX LP",
+      name: "FMX LP",
       symbol: "GLP",
       decimals: 18,
       address: getContract(ARBITRUM, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/fmx-io/fmx-assets/blob/main/FMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   },
   [AVALANCHE]: {
     // avalanche
-    GMX: {
-      name: "GMX",
-      symbol: "GMX",
+    FMX: {
+      name: "FMX",
+      symbol: "FMX",
       decimals: 18,
-      address: getContract(AVALANCHE, "GMX"),
+      address: getContract(AVALANCHE, "FMX"),
       imageUrl: "https://assets.coingecko.com/coins/images/18323/small/arbit.png?1631532468",
     },
     GLP: {
-      name: "GMX LP",
+      name: "FMX LP",
       symbol: "GLP",
       decimals: 18,
       address: getContract(AVALANCHE, "StakedGlpTracker"), // address of fsGLP token because user only holds fsGLP
-      imageUrl: "https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
+      imageUrl: "https://github.com/fmx-io/fmx-assets/blob/main/FMX-Assets/PNG/GLP_LOGO%20ONLY.png?raw=true",
     },
   },
 };
 
 export const ICONLINKS = {
   [ARBITRUM_TESTNET]: {
-    GMX: {
-      coingecko: "https://www.coingecko.com/en/coins/gmx",
+    FMX: {
+      coingecko: "https://www.coingecko.com/en/coins/fmx",
       arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
     },
     GLP: {
@@ -424,13 +424,13 @@ export const ICONLINKS = {
     },
   },
   [ARBITRUM]: {
-    GMX: {
-      coingecko: "https://www.coingecko.com/en/coins/gmx",
+    FMX: {
+      coingecko: "https://www.coingecko.com/en/coins/fmx",
       arbitrum: "https://arbiscan.io/address/0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a",
     },
     GLP: {
       arbitrum: "https://arbiscan.io/token/0x1aDDD80E6039594eE970E5872D247bf0414C8903",
-      reserves: "https://portfolio.nansen.ai/dashboard/gmx?chain=ARBITRUM",
+      reserves: "https://portfolio.nansen.ai/dashboard/fmx?chain=ARBITRUM",
     },
     ETH: {
       coingecko: "https://www.coingecko.com/en/coins/ethereum",
@@ -469,13 +469,13 @@ export const ICONLINKS = {
     },
   },
   [AVALANCHE]: {
-    GMX: {
-      coingecko: "https://www.coingecko.com/en/coins/gmx",
+    FMX: {
+      coingecko: "https://www.coingecko.com/en/coins/fmx",
       avalanche: "https://snowtrace.io/address/0x62edc0692bd897d2295872a9ffcac5425011c661",
     },
     GLP: {
       avalanche: "https://snowtrace.io/address/0x9e295B5B976a184B14aD8cd72413aD846C299660",
-      reserves: "https://portfolio.nansen.ai/dashboard/gmx?chain=AVAX",
+      reserves: "https://portfolio.nansen.ai/dashboard/fmx?chain=AVAX",
     },
     AVAX: {
       coingecko: "https://www.coingecko.com/en/coins/avalanche",

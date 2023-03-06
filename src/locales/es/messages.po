@@ -42,19 +42,19 @@ msgid "<0/>Profit price: {0} ${1}. This rule applies for the next {2}, until {3}
 msgstr ""
 
 #: src/App/App.js
-msgid "<0>Install Coinbase Wallet</0> to start using GMX."
+msgid "<0>Install Coinbase Wallet</0> to start using FMX."
 msgstr ""
 
 #: src/App/App.js
-msgid "<0>Install Coinbase Wallet</0>, and use GMX with its built-in browser."
+msgid "<0>Install Coinbase Wallet</0>, and use FMX with its built-in browser."
 msgstr ""
 
 #: src/App/App.js
-msgid "<0>Install MetaMask</0> to start using GMX."
+msgid "<0>Install MetaMask</0> to start using FMX."
 msgstr ""
 
 #: src/App/App.js
-msgid "<0>Install MetaMask</0>, and use GMX with its built-in browser."
+msgid "<0>Install MetaMask</0>, and use FMX with its built-in browser."
 msgstr ""
 
 #: src/components/Exchange/OrdersToa.js
@@ -74,8 +74,8 @@ msgid "<0>The pool's capacity has been reached for {0}. Please use another token
 msgstr ""
 
 #: src/pages/Stake/StakeV2.js
-msgid "<0>This will withdraw and unreserve all tokens as well as pause vesting.<1/><2/>esGMX tokens that have been converted to GMX will remain as GMX tokens.<3/><4/>To claim GMX tokens without withdrawing, use the \"Claim\" button under the Total Rewards section.<5/><6/></0>"
-msgstr "<0>Esto retirará y desreservará todos los tokens y pausará la adquisición.<1/><2/>Los tokens de esGMX que han sido convertidos a GMX permanecerán como tokens de GMX.<3/><4/>Para reclamar tokens de GMX sin retirarlos, utilice el botón \"Reclamar\" bajo la sección de Recompensas Totales.<5/><6/></0>"
+msgid "<0>This will withdraw and unreserve all tokens as well as pause vesting.<1/><2/>esFMX tokens that have been converted to FMX will remain as FMX tokens.<3/><4/>To claim FMX tokens without withdrawing, use the \"Claim\" button under the Total Rewards section.<5/><6/></0>"
+msgstr "<0>Esto retirará y desreservará todos los tokens y pausará la adquisición.<1/><2/>Los tokens de esFMX que han sido convertidos a FMX permanecerán como tokens de FMX.<3/><4/>Para reclamar tokens de FMX sin retirarlos, utilice el botón \"Reclamar\" bajo la sección de Recompensas Totales.<5/><6/></0>"
 
 #: src/pages/Dashboard/DashboardV2.js
 msgid "<0>Total value of tokens in GLP pool ({chainName}).</0><1>Other websites may show a higher value as they add positions' collaterals to the GLP pool.</1>"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "APR"
 msgstr "APR"
 
-#: src/components/Stake/GMXAprTooltip.tsx
+#: src/components/Stake/FMXAprTooltip.tsx
 #: src/pages/Stake/StakeV2.js
 msgid "APRs are updated weekly on Wednesday and will depend on the fees collected for the week."
 msgstr "Los APR se actualizan semanalmente en el Miércoles, y dependerán de las comisiones cobradas en la semana."
@@ -181,13 +181,13 @@ msgstr "Además, las órdenes de activación son órdenes de mercado y no se gar
 msgid "Affiliates"
 msgstr "Afiliados"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "After claiming you will be able to vest a maximum of {0} esGMX at a ratio of {1} {stakingToken} to 1 esGMX."
-msgstr "Tras reclamar podrás adquirir un máximo de {0} esGMX en una relación de {1} {stakingToken} por 1 esGMX"
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "After claiming you will be able to vest a maximum of {0} esFMX at a ratio of {1} {stakingToken} to 1 esFMX."
+msgstr "Tras reclamar podrás adquirir un máximo de {0} esFMX en una relación de {1} {stakingToken} por 1 esFMX"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "After claiming, the esGMX tokens will be airdropped to your account on the selected network within 7 days."
-msgstr "Tras reclamar, los tokens esGMX serán enviados a su cuenta en la red seleccionada dentro de 7 días."
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "After claiming, the esFMX tokens will be airdropped to your account on the selected network within 7 days."
+msgstr "Tras reclamar, los tokens esFMX serán enviados a su cuenta en la red seleccionada dentro de 7 días."
 
 #: src/components/ModalViews/RedirectModal.js
 msgid "Agree"
@@ -221,7 +221,7 @@ msgstr "Cantidad"
 msgid "Amount of traders you referred."
 msgstr "Cantidad de comerciantes que ha referido."
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "Amount to claim"
 msgstr "Cantidad a reclamar"
 
@@ -251,8 +251,8 @@ msgstr ""
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 #: src/pages/Stake/StakeV2.js
-msgid "Approve GMX"
-msgstr "Aprobar GMX"
+msgid "Approve FMX"
+msgstr "Aprobar FMX"
 
 #: src/components/Exchange/PositionEditor.js
 #: src/components/Exchange/SwapBox.js
@@ -267,8 +267,8 @@ msgid "Approve {stakingTokenSymbol}"
 msgstr "Aprobar {stakingTokenSymbol}"
 
 #: src/pages/Stake/StakeV2.js
-msgid "Approving GMX..."
-msgstr "Aprobando GMX..."
+msgid "Approving FMX..."
+msgstr "Aprobando FMX..."
 
 #: src/components/Exchange/PositionEditor.js
 #: src/components/Exchange/SwapBox.js
@@ -305,7 +305,7 @@ msgid "Assets Under Management"
 msgstr ""
 
 #: src/pages/Dashboard/DashboardV2.js
-msgid "Assets Under Management: GMX staked (All chains) + GLP pool ({chainName})."
+msgid "Assets Under Management: FMX staked (All chains) + GLP pool ({chainName})."
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js
@@ -405,12 +405,56 @@ msgstr "Comprar"
 msgid "Buy / Sell GLP"
 msgstr "Comprar / Vender GLP"
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Buy AVAX directly to Avalanche or transfer it there."
 msgstr ""
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Buy ETH directly to Arbitrum or transfer it there."
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+msgid "Buy FMX"
+msgstr "Comprar FMX"
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX from Traderjoe:"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX from Uniswap (make sure to select Arbitrum):"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX from a Decentralized Exchange"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX from centralized exchanges:"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX from centralized services"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX on {0}"
+msgstr ""
+
+#: src/pages/Buy/Buy.js
+msgid "Buy FMX or GLP"
+msgstr "Comprar FMX o GLP"
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX using Decentralized Exchange Aggregators:"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX using FIAT gateways:"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "Buy FMX using any token from any network:"
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js
@@ -422,50 +466,6 @@ msgstr "Comprar GLP"
 
 #: src/pages/BuyGlp/BuyGlp.js
 msgid "Buy GLP Icon"
-msgstr ""
-
-#: src/pages/Stake/StakeV2.js
-msgid "Buy GMX"
-msgstr "Comprar GMX"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from Traderjoe:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from Uniswap (make sure to select Arbitrum):"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from a Decentralized Exchange"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from centralized exchanges:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX from centralized services"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX on {0}"
-msgstr ""
-
-#: src/pages/Buy/Buy.js
-msgid "Buy GMX or GLP"
-msgstr "Comprar GMX o GLP"
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using Decentralized Exchange Aggregators:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using FIAT gateways:"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "Buy GMX using any token from any network:"
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js
@@ -482,11 +482,11 @@ msgstr "Comprar en Arbitrum"
 msgid "Buy on Avalanche"
 msgstr "Comprar en Avalanche"
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Buy or Transfer AVAX to Avalanche"
 msgstr ""
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Buy or Transfer ETH to Arbitrum"
 msgstr ""
 
@@ -499,7 +499,7 @@ msgstr "Compra enviada."
 msgid "Buy with {0}"
 msgstr "Compra con {0}"
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Buy {nativeTokenSymbol}"
 msgstr ""
 
@@ -556,11 +556,11 @@ msgstr "Comprueba la sección \"Ahorrar en tasas\" para obtener los porcentajes 
 msgid "Checking code..."
 msgstr "Comprobando código..."
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Choose to buy from decentralized or centralized exchanges."
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
@@ -574,37 +574,37 @@ msgstr "Reclamar"
 
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
-msgid "Claim GMX Rewards"
-msgstr "Reclamar Recompensas GMX"
+msgid "Claim FMX Rewards"
+msgstr "Reclamar Recompensas FMX"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Claim Rewards"
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 #: src/pages/Stake/StakeV2.js
 msgid "Claim completed!"
 msgstr "¡Reclamación completada!"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "Claim esGMX"
-msgstr "Reclamar esGMX"
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "Claim esFMX"
+msgstr "Reclamar esFMX"
 
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
-msgid "Claim esGMX Rewards"
-msgstr "Reclamar Recompensas esGMX"
+msgid "Claim esFMX Rewards"
+msgstr "Reclamar Recompensas esFMX"
 
 #: src/pages/Stake/StakeV1.js
 msgid "Claim failed"
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 #: src/pages/Stake/StakeV2.js
 msgid "Claim failed."
 msgstr "Reclamación fallida."
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "Claim submitted!"
 msgstr "¡Reclamación enviada!"
 
@@ -626,7 +626,7 @@ msgstr "Reclamar Recomensas {wrappedTokenSymbol}"
 msgid "Claimable"
 msgstr "Reclamable"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 #: src/pages/Stake/StakeV2.js
 msgid "Claiming..."
 msgstr "Reclamando..."
@@ -803,8 +803,8 @@ msgid "Continue"
 msgstr "Continuar"
 
 #: src/pages/Stake/StakeV2.js
-msgid "Convert esGMX tokens to GMX tokens.<0/>Please read the <1>vesting details</1> before using the vaults."
-msgstr "Convertir los tokens esGMX en tokens GMX.<0/>Por favor, lea los <1>detalles de adquisición</1> antes de utilizar las cajas."
+msgid "Convert esFMX tokens to FMX tokens.<0/>Please read the <1>vesting details</1> before using the vaults."
+msgstr "Convertir los tokens esFMX en tokens FMX.<0/>Por favor, lea los <1>detalles de adquisición</1> antes de utilizar las cajas."
 
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
@@ -925,7 +925,7 @@ msgid "Dashboard"
 msgstr "Panel"
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Dashboard for GMX referral stats"
+msgid "Dashboard for FMX referral stats"
 msgstr ""
 
 #: src/pages/Ecosystem/Ecosystem.js
@@ -1212,7 +1212,7 @@ msgstr "Introduce un precio"
 #: src/components/Glp/GlpSwap.js
 #: src/components/Glp/GlpSwap.js
 #: src/components/Migration/Migration.js
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV1.js
 #: src/pages/Stake/StakeV2.js
@@ -1241,12 +1241,12 @@ msgstr "Precio de Entrada"
 
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
-msgid "Escrowed GMX"
+msgid "Escrowed FMX"
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js
-msgid "Escrowed GMX APR"
-msgstr "Escrowded GMX APR"
+msgid "Escrowed FMX APR"
+msgstr "Escrowded FMX APR"
 
 #: src/pages/OrdersOverview/OrdersOverview.js
 msgid "Execute"
@@ -1278,6 +1278,92 @@ msgstr "Precio de Salida"
 msgid "FEES"
 msgstr "COMISIONES"
 
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Announcements and Updates"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Blueberry NFTs"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Governance Page"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Pages"
+msgstr "Páginas FMX"
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Perpetuals Data"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Proposals Voting page"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Stats Page"
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
+msgid "FMX Vault"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX Weekly Updates"
+msgstr ""
+
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "FMX bonds can be bought on Olympus Pro with a discount and a small vesting period:"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX community discussion"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX dashboards and analytics."
+msgstr "Paneles y análisis de FMX."
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX ecosystem pages."
+msgstr "Páginas del ecosistema FMX."
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX explorer for stats and traders"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX fundamentals"
+msgstr ""
+
+#: src/pages/Home/Home.js
+msgid "FMX is currently live on Arbitrum and Avalanche."
+msgstr "FMX esta actualmente en vivo en Arbitrum y Avalanche."
+
+#: src/pages/Jobs/Jobs.js
+msgid "FMX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@fmx.io</0>."
+msgstr ""
+
+#: src/components/TokenCard/TokenCard.js
+msgid "FMX is the utility and governance token. Accrues 30% of the platform's generated fees."
+msgstr "FMX es el token de utilidad y gobierno, y también acumula el 30% de las comisiones generadas por la plataforma."
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX staking calculator"
+msgstr ""
+
+#: src/pages/Ecosystem/Ecosystem.js
+msgid "FMX staking rewards updates and insights"
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
+msgid "FMX transfers not yet enabled"
+msgstr "Las transferencias FMX aún no están habilitadas"
+
 #: src/components/Exchange/ConfirmationBox.js
 #: src/components/Exchange/ConfirmationBox.js
 #: src/components/Exchange/ConfirmationBox.js
@@ -1300,7 +1386,7 @@ msgid "Fees are high to swap from {0} to {1}. <0/>{2} is needed for collateral."
 msgstr ""
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Fees generated by GMX"
+msgid "Fees generated by FMX"
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js
@@ -1380,92 +1466,6 @@ msgstr "GLP es el token proveedor de liquidez. Acumula el 70% de las comisiones 
 msgid "GLP sell disabled, pending {0} upgrade"
 msgstr ""
 
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Announcements and Updates"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Blueberry NFTs"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Governance Page"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Pages"
-msgstr "Páginas GMX"
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Perpetuals Data"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Proposals Voting page"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Stats Page"
-msgstr ""
-
-#: src/pages/Stake/StakeV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "GMX Vault"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX Weekly Updates"
-msgstr ""
-
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "GMX bonds can be bought on Olympus Pro with a discount and a small vesting period:"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX community discussion"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX dashboards and analytics."
-msgstr "Paneles y análisis de GMX."
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX ecosystem pages."
-msgstr "Páginas del ecosistema GMX."
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX explorer for stats and traders"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX fundamentals"
-msgstr ""
-
-#: src/pages/Home/Home.js
-msgid "GMX is currently live on Arbitrum and Avalanche."
-msgstr "GMX esta actualmente en vivo en Arbitrum y Avalanche."
-
-#: src/pages/Jobs/Jobs.js
-msgid "GMX is not actively looking for new hires at the moment. However, if you think you can contribute to the project, please email <0>jobs@gmx.io</0>."
-msgstr ""
-
-#: src/components/TokenCard/TokenCard.js
-msgid "GMX is the utility and governance token. Accrues 30% of the platform's generated fees."
-msgstr "GMX es el token de utilidad y gobierno, y también acumula el 30% de las comisiones generadas por la plataforma."
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX staking calculator"
-msgstr ""
-
-#: src/pages/Ecosystem/Ecosystem.js
-msgid "GMX staking rewards updates and insights"
-msgstr ""
-
-#: src/pages/Stake/StakeV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "GMX transfers not yet enabled"
-msgstr "Las transferencias GMX aún no están habilitadas"
-
 #: src/components/Referrals/AddAffiliateCode.js
 msgid "Generate Referral Code"
 msgstr "Generar Código de Referido"
@@ -1475,8 +1475,8 @@ msgid "Generating shareable image..."
 msgstr ""
 
 #: src/pages/Referrals/Referrals.js
-msgid "Get fee discounts and earn rebates through the GMX referral program.<0/>For more information, please read the <1>referral program details</1>."
-msgstr "Obtenga descuentos en las comisiones y gane reembolsos a través del programa de referidos de GMX.<0/>Para más información, por favor lea los <1>detalles del programa de referidos</1>."
+msgid "Get fee discounts and earn rebates through the FMX referral program.<0/>For more information, please read the <1>referral program details</1>."
+msgstr "Obtenga descuentos en las comisiones y gane reembolsos a través del programa de referidos de FMX.<0/>Para más información, por favor lea los <1>detalles del programa de referidos</1>."
 
 #: src/components/Header/HomeHeaderLinks.tsx
 msgid "Governance"
@@ -1631,7 +1631,7 @@ msgid "Invalid token indexToken: \"{0}\" collateralToken: \"{1}\""
 msgstr ""
 
 #: src/pages/Jobs/Jobs.js
-msgid "Job openings at GMX."
+msgid "Job openings at FMX."
 msgstr ""
 
 #: src/pages/Jobs/Jobs.js
@@ -1657,7 +1657,7 @@ msgid "Leaderboard"
 msgstr "Tabla de clasificación"
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Leaderboard for GMX traders"
+msgid "Leaderboard for FMX traders"
 msgstr ""
 
 #: src/components/Exchange/PositionEditor.js
@@ -1819,7 +1819,7 @@ msgstr "Pérdida"
 #: src/components/Exchange/PositionSeller.js
 #: src/components/Exchange/SwapBox.js
 #: src/components/InputSection/InputSection.js
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "MAX"
 msgstr "MÁX"
 
@@ -2087,9 +2087,9 @@ msgstr ""
 msgid "No PnLs found"
 msgstr "No se han encontrado GyPs"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "No esGMX to claim"
-msgstr "No hay esGMX para reclamar"
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "No esFMX to claim"
+msgstr "No hay esFMX para reclamar"
 
 #: src/components/Exchange/OrdersList.js
 #: src/components/Exchange/OrdersList.js
@@ -2106,7 +2106,7 @@ msgid "No open positions"
 msgstr "No hay posiciones abiertas"
 
 #: src/pages/Jobs/Jobs.js
-msgid "No open positions at GMX currently"
+msgid "No open positions at FMX currently"
 msgstr ""
 
 #: src/pages/OrdersOverview/OrdersOverview.js
@@ -2309,14 +2309,14 @@ msgid "Please input a referral code to benefit from fee discounts."
 msgstr "Por favor, introduzca un código de referido para beneficiarse de los descuentos en las comisiones."
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
-msgid "Please only use this for full account transfers.<0/>This will transfer all your GMX, esGMX, GLP and Multiplier Points to your new account.<1/>Transfers are only supported if the receiving account has not staked GMX or GLP tokens before.<2/>Transfers are one-way, you will not be able to transfer staked tokens back to the sending account."
+msgid "Please only use this for full account transfers.<0/>This will transfer all your FMX, esFMX, GLP and Multiplier Points to your new account.<1/>Transfers are only supported if the receiving account has not staked FMX or GLP tokens before.<2/>Transfers are one-way, you will not be able to transfer staked tokens back to the sending account."
 msgstr ""
 
 #: src/components/Migration/Migration.js
 msgid "Please read the <0>Medium post</0> before migrating."
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "Please switch your network to Arbitrum."
 msgstr "Por favor, cambie su red a Arbitrum."
 
@@ -2449,12 +2449,12 @@ msgid "Profit price: {0} ${1}. This rule applies for the next {2}, until {3}."
 msgstr ""
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Projects developed by the GMX community."
-msgstr "Proyectos desarrollados por la comunidad de GMX."
+msgid "Projects developed by the FMX community."
+msgstr "Proyectos desarrollados por la comunidad de FMX."
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Projects integrated with GMX."
-msgstr "Proyectos integrados con GMX."
+msgid "Projects integrated with FMX."
+msgstr "Proyectos integrados con FMX."
 
 #: src/pages/Dashboard/AssetDropdown.tsx
 msgid "Proof of Reserves"
@@ -2516,12 +2516,12 @@ msgid "Receiver Address"
 msgstr "Dirección del receptor"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
-msgid "Receiver has not staked GLP tokens before"
-msgstr "El receptor no ha stakeado tokens GLP antes."
+msgid "Receiver has not staked FMX tokens before"
+msgstr "El receptor no ha stakeado tokens FMX antes."
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
-msgid "Receiver has not staked GMX tokens before"
-msgstr "El receptor no ha stakeado tokens GMX antes."
+msgid "Receiver has not staked GLP tokens before"
+msgstr "El receptor no ha stakeado tokens GLP antes."
 
 #: src/components/Glp/GlpSwap.js
 msgid "Redemption time not yet reached"
@@ -2626,7 +2626,7 @@ msgid "Reserved for Vesting"
 msgstr "Reservado para Adquisición"
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Returns calculator for GMX and GLP"
+msgid "Returns calculator for FMX and GLP"
 msgstr ""
 
 #: src/pages/Stake/StakeV1.js
@@ -2676,7 +2676,7 @@ msgstr "Seleccionar Idioma"
 msgid "Select Market"
 msgstr "Seleccionar Idioma"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "Select an option"
 msgstr "Seleccionar una opción"
 
@@ -2687,7 +2687,7 @@ msgstr "Seleccionar una opción"
 msgid "Select different tokens"
 msgstr "Selecciona tokens diferentes"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "Select your vesting option below then click \"Claim\"."
 msgstr "Seleccione su opción de adquisición a continuación y haga clic en \"Reclamar\"."
 
@@ -2721,12 +2721,12 @@ msgid "Selling..."
 msgstr "Vendiendo..."
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
-msgid "Sender has withdrawn all tokens from GLP Vesting Vault"
-msgstr "El remitente ha retirado todos los tokens del Baúl de Adquisición GLP"
+msgid "Sender has withdrawn all tokens from FMX Vesting Vault"
+msgstr "El remitente ha retirado todos los tokens del Cajas de Adquisición FMX"
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
-msgid "Sender has withdrawn all tokens from GMX Vesting Vault"
-msgstr "El remitente ha retirado todos los tokens del Cajas de Adquisición GMX"
+msgid "Sender has withdrawn all tokens from GLP Vesting Vault"
+msgstr "El remitente ha retirado todos los tokens del Baúl de Adquisición GLP"
 
 #: src/App/App.js
 #: src/components/Header/AppHeaderLinks.tsx
@@ -2826,28 +2826,28 @@ msgid "Stake"
 msgstr "Stake"
 
 #: src/pages/Stake/StakeV2.js
-msgid "Stake <0>GMX</0> and <1>GLP</1> to earn rewards."
-msgstr "Stakea <0>GMX</0> y <1>GLP</1> para ganar recompensas."
+msgid "Stake <0>FMX</0> and <1>GLP</1> to earn rewards."
+msgstr "Stakea <0>FMX</0> y <1>GLP</1> para ganar recompensas."
 
 #: src/pages/Stake/StakeV2.js
-msgid "Stake GMX"
+msgid "Stake FMX"
 msgstr ""
 
 #: src/pages/Stake/StakeV2.js
-msgid "Stake GMX Rewards"
-msgstr "Stakea Recompensas GMX"
+msgid "Stake FMX Rewards"
+msgstr "Stakea Recompensas FMX"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Stake Multiplier Points"
 msgstr "Stakea Puntos Multiplicadores"
 
 #: src/pages/Stake/StakeV2.js
-msgid "Stake esGMX"
+msgid "Stake esFMX"
 msgstr ""
 
 #: src/pages/Stake/StakeV2.js
-msgid "Stake esGMX Rewards"
-msgstr "Stakea Recompensas esGMX"
+msgid "Stake esFMX Rewards"
+msgstr "Stakea Recompensas esFMX"
 
 #: src/pages/Stake/StakeV1.js
 msgid "Stake failed"
@@ -3036,11 +3036,11 @@ msgid "Telegram Groups"
 msgstr "Grupos de Telegram"
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Telegram bot for GMX position updates"
+msgid "Telegram bot for FMX position updates"
 msgstr ""
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Telegram bot for Open Interest on GMX"
+msgid "Telegram bot for Open Interest on FMX"
 msgstr ""
 
 #: src/components/Footer/constants.ts
@@ -3048,10 +3048,10 @@ msgid "Terms and Conditions"
 msgstr "Términos y Condiciones"
 
 #: src/pages/Stake/StakeV1.js
-msgid "The <0>GMX migration</0> is in progress, please migrate your GMT, xGMT, GMT-USDG and xGMT-USDG tokens.<1/>USDG tokens will continue to function as before and do not need to be migrated."
+msgid "The <0>FMX migration</0> is in progress, please migrate your GMT, xGMT, GMT-USDG and xGMT-USDG tokens.<1/>USDG tokens will continue to function as before and do not need to be migrated."
 msgstr ""
 
-#: src/components/Stake/GMXAprTooltip.tsx
+#: src/components/Stake/FMXAprTooltip.tsx
 msgid "The Boosted APR is from your staked Multiplier Points."
 msgstr "El APR aumentado es de sus Puntos Multiplicadores stakeados."
 
@@ -3059,21 +3059,21 @@ msgstr "El APR aumentado es de sus Puntos Multiplicadores stakeados."
 msgid "The Gambit protocol is in beta, please read the <0>staking details</0>before participating."
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "The address of the esGMX (IOU) token is {esGmxIouAddress}."
-msgstr "La dirección del token esGMX (IOU) es {esGmxIouAddress}."
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "The address of the esFMX (IOU) token is {esFmxIouAddress}."
+msgstr "La dirección del token esFMX (IOU) es {esFmxIouAddress}."
 
 #: src/components/Exchange/SwapBox.js
 msgid "The borrow fee is calculated as (assets borrowed) / (total assets in pool) * 0.01% per hour."
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "The esGMX (IOU) token is transferrable. You can add the token to your wallet and send it to another address to claim if you'd like."
-msgstr "El token esGMX (IOU) es transferible. Puedes agregar el token a tu cartera y enviarlo a otra dirección para reclamarlo si lo deseas."
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "The esFMX (IOU) token is transferrable. You can add the token to your wallet and send it to another address to claim if you'd like."
+msgstr "El token esFMX (IOU) es transferible. Puedes agregar el token a tu cartera y enviarlo a otra dirección para reclamarlo si lo deseas."
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "The esGMX tokens can be staked or vested at any time."
-msgstr "Los tokens esGMX pueden ser stakeados o adquiridos en cualquier momento."
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "The esFMX tokens can be staked or vested at any time."
+msgstr "Los tokens esFMX pueden ser stakeados o adquiridos en cualquier momento."
 
 #: src/lib/contracts/callContract.tsx
 msgid "The mark price has changed, consider increasing your Allowed Slippage by clicking on the \"...\" icon next to your address."
@@ -3104,7 +3104,7 @@ msgid "The spread is > 1%, please ensure the trade details are acceptable before
 msgstr ""
 
 #: src/components/ModalViews/RedirectModal.js
-msgid "The website is a community deployed and maintained instance of the open source <0>GMX front end</0>, hosted and served on the distributed, peer-to-peer <1>IPFS network</1>."
+msgid "The website is a community deployed and maintained instance of the open source <0>FMX front end</0>, hosted and served on the distributed, peer-to-peer <1>IPFS network</1>."
 msgstr ""
 
 #: src/components/Exchange/SwapBox.js
@@ -3168,8 +3168,8 @@ msgstr ""
 msgid "To complete the transfer, you must switch your connected account to {receiver}."
 msgstr "Para completar la transferencia, debes cambiar tu cuenta conectada a {receiver}."
 
-#: src/pages/BuyGMX/BuyGMX.tsx
-msgid "To purchase GMX on the {0} blockchain, please <0>change your network</0>."
+#: src/pages/BuyFMX/BuyFMX.tsx
+msgid "To purchase FMX on the {0} blockchain, please <0>change your network</0>."
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js
@@ -3287,10 +3287,10 @@ msgid "Trade BTC, ETH, AVAX and other top cryptocurrencies with up to 50x levera
 msgstr ""
 
 #: src/components/Exchange/ExchangeBanner.js
-msgid "Trade on GMX and win <0>$250.000</0> in prizes! Live until November 30th, <1>click here</1> to learn more."
+msgid "Trade on FMX and win <0>$250.000</0> in prizes! Live until November 30th, <1>click here</1> to learn more."
 msgstr ""
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "TraderJoe"
 msgstr ""
 
@@ -3368,7 +3368,7 @@ msgstr "La transferencia ha fallado."
 msgid "Transfer submitted!"
 msgstr "¡Transferencia enviada!"
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Transfer {nativeTokenSymbol}"
 msgstr ""
 
@@ -3423,7 +3423,7 @@ msgstr ""
 msgid "UTILIZATION"
 msgstr "UTILIZACIÓN"
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "Uniswap"
 msgstr ""
 
@@ -3440,15 +3440,15 @@ msgid "Unstake"
 msgstr "Destakear"
 
 #: src/pages/Stake/StakeV2.js
-msgid "Unstake GMX"
-msgstr "Destakear GMX"
+msgid "Unstake FMX"
+msgstr "Destakear FMX"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Unstake completed!"
 msgstr "¡Destakeo completado!"
 
 #: src/pages/Stake/StakeV2.js
-msgid "Unstake esGMX"
+msgid "Unstake esFMX"
 msgstr ""
 
 #: src/pages/Stake/StakeV1.js
@@ -3527,29 +3527,29 @@ msgstr ""
 msgid "Vest"
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "Vest with FMX on Arbitrum"
+msgstr "Adquiera con FMX en Arbitrum"
+
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "Vest with FMX on Avalanche"
+msgstr "Adquiera con FMX en Avalanche"
+
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "Vest with GLP on Arbitrum"
 msgstr "Adquiera con GLP en Arbitrum"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "Vest with GLP on Avalanche"
 msgstr "Adquiera con GLP en Avalanche"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "Vest with GMX on Arbitrum"
-msgstr "Adquiera con GMX en Arbitrum"
-
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "Vest with GMX on Avalanche"
-msgstr "Adquiera con GMX en Avalanche"
+#: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
+msgid "Vested FMX not withdrawn"
+msgstr "FMX adquirido no retirado."
 
 #: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
 msgid "Vested GLP not withdrawn"
 msgstr "GLP adquirido no retirado."
-
-#: src/pages/BeginAccountTransfer/BeginAccountTransfer.js
-msgid "Vested GMX not withdrawn"
-msgstr "GMX adquirido no retirado."
 
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
@@ -3634,7 +3634,7 @@ msgstr "Monedero"
 msgid "Wallet is not connected"
 msgstr "El monedero no está conectado"
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 #: src/pages/NftWallet/NftWallet.js
 msgid "Wallet not connected"
 msgstr "Monedero no conectado"
@@ -3673,12 +3673,12 @@ msgid "Withdraw failed."
 msgstr "Retiro fallido."
 
 #: src/pages/Stake/StakeV2.js
-msgid "Withdraw from GLP Vault"
-msgstr "Retirar del Baúl GLP"
+msgid "Withdraw from FMX Vault"
+msgstr "Retirar del Baúl FMX"
 
 #: src/pages/Stake/StakeV2.js
-msgid "Withdraw from GMX Vault"
-msgstr "Retirar del Baúl GMX"
+msgid "Withdraw from GLP Vault"
+msgstr "Retirar del Baúl GLP"
 
 #: src/pages/Stake/StakeV2.js
 msgid "Withdraw submitted."
@@ -3717,7 +3717,7 @@ msgid "Yield Vaults"
 msgstr ""
 
 #: src/pages/Ecosystem/Ecosystem.js
-msgid "Yield simulator for GMX"
+msgid "Yield simulator for FMX"
 msgstr ""
 
 #: src/pages/Stake/StakeV2.js
@@ -3729,14 +3729,14 @@ msgid "You are earning {nativeTokenSymbol} rewards with {0} tokens.<0/>Tokens: {
 msgstr "Estás ganando {nativeTokenSymbol} recompensas con {0} tokens.<0/>Tokens: {amountStr}."
 
 #: src/components/ModalViews/RedirectModal.js
-msgid "You are leaving GMX.io and will be redirected to a third party, independent website."
+msgid "You are leaving FMX.io and will be redirected to a third party, independent website."
 msgstr ""
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "You can buy AVAX directly on <0>Avalanche</0> using these options:"
 msgstr ""
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "You can buy ETH directly on <0>Arbitrum</0> using these options:"
 msgstr ""
 
@@ -3749,19 +3749,19 @@ msgstr ""
 msgid "You can change this in the settings menu on the top right of the page.<0/><1/>Note that a low allowed slippage, e.g. less than 0.5%, may result in failed orders if prices are volatile."
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
 msgid "You can check your claim history <0>here</0>."
 msgstr "Puede consultar su historial de reclamaciones <0>aquí</0>."
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "You can currently vest a maximum of {0} esGMX tokens at a ratio of {1} {stakingToken} to 1 esGMX."
-msgstr "Actualmente puede adquirir un máximo de {0} tokens esGMX a razón de {1} {stakingToken} por 1 esGMX\"."
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "You can currently vest a maximum of {0} esFMX tokens at a ratio of {1} {stakingToken} to 1 esFMX."
+msgstr "Actualmente puede adquirir un máximo de {0} tokens esFMX a razón de {1} {stakingToken} por 1 esFMX\"."
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "You can transfer AVAX from other networks to Avalanche using any of the below options:"
 msgstr ""
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "You can transfer ETH from other networks to Arbitrum using any of the below options:"
 msgstr "Puedes transferir ETH desde otras redes a Arbitrum usando cualquiera de las siguientes opciones:"
 
@@ -3790,12 +3790,12 @@ msgstr ""
 msgid "You have not deposited any tokens for vesting."
 msgstr "No has depositado ningún token para su adquisición."
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "You have {0} esGMX (IOU) tokens."
-msgstr "Tienes {0} tokens esGMX (IOU)."
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "You have {0} esFMX (IOU) tokens."
+msgstr "Tienes {0} tokens esFMX (IOU)."
 
 #: src/pages/Stake/StakeV2.js
-msgid "You need a total of at least {0} {stakeTokenLabel} to vest {1} esGMX."
+msgid "You need a total of at least {0} {stakeTokenLabel} to vest {1} esFMX."
 msgstr ""
 
 #: src/components/Exchange/NoLiquidityErrorModal.tsx
@@ -3818,9 +3818,9 @@ msgstr ""
 msgid "You will receive at least {0} {1} if this order is executed. The execution price may vary depending on swap fees at the time the order is executed."
 msgstr ""
 
-#: src/pages/ClaimEsGmx/ClaimEsGmx.js
-msgid "Your esGMX (IOU) balance will decrease by your claim amount after claiming, this is expected behaviour."
-msgstr "El saldo de su esGMX (IOU) disminuirá en la cantidad de su reclamación después de reclamar, este es el comportamiento esperado."
+#: src/pages/ClaimEsFmx/ClaimEsFmx.js
+msgid "Your esFMX (IOU) balance will decrease by your claim amount after claiming, this is expected behaviour."
+msgstr "El saldo de su esFMX (IOU) disminuirá en la cantidad de su reclamación después de reclamar, este es el comportamiento esperado."
 
 #: src/components/Exchange/ConfirmationBox.js
 msgid "Your position's collateral after deducting fees."
@@ -3894,7 +3894,7 @@ msgstr ""
 msgid "{0, select, true {Long} false {Short}} {1} market selected"
 msgstr ""
 
-#: src/pages/BuyGMX/BuyGMX.tsx
+#: src/pages/BuyFMX/BuyFMX.tsx
 msgid "{0}"
 msgstr ""
 
@@ -3904,6 +3904,11 @@ msgstr ""
 
 #: src/components/Glp/SwapErrorModal.tsx
 msgid "{0} Capacity Reached"
+msgstr ""
+
+#: src/pages/Stake/StakeV2.js
+#: src/pages/Stake/StakeV2.js
+msgid "{0} FMX tokens can be claimed, use the options under the Total Rewards section to claim them."
 msgstr ""
 
 #: src/components/Glp/GlpSwap.js
@@ -3921,11 +3926,6 @@ msgstr "{0} GLP se han reservado para adquisiciones."
 #: src/components/Glp/GlpSwap.js
 msgid "{0} GLP sold for {1} {2}!"
 msgstr "¡{0} GLP vendido por {1} {2}!"
-
-#: src/pages/Stake/StakeV2.js
-#: src/pages/Stake/StakeV2.js
-msgid "{0} GMX tokens can be claimed, use the options under the Total Rewards section to claim them."
-msgstr ""
 
 #: src/components/Exchange/NoLiquidityErrorModal.tsx
 msgid "{0} Pool Capacity Reached"
@@ -3979,7 +3979,7 @@ msgstr "{0} seleccionado en el formulario de órden"
 
 #: src/pages/Stake/StakeV2.js
 #: src/pages/Stake/StakeV2.js
-msgid "{0} tokens have been converted to GMX from the {1} esGMX deposited for vesting."
+msgid "{0} tokens have been converted to FMX from the {1} esFMX deposited for vesting."
 msgstr ""
 
 #: src/components/Exchange/TradeHistory.js

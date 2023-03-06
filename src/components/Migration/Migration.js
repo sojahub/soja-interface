@@ -14,7 +14,7 @@ import { getContract } from "config/contracts";
 
 import Reader from "abis/Reader.json";
 import Token from "abis/Token.json";
-import GmxMigrator from "abis/GmxMigrator.json";
+import FmxMigrator from "abis/FmxMigrator.json";
 import { CHAIN_ID, getExplorerUrl } from "config/chains";
 import { contractFetcher } from "lib/contracts";
 import { helperToast } from "lib/helperToast";
@@ -35,14 +35,14 @@ const { MaxUint256, AddressZero } = ethers.constants;
 
 const precision = 1000000;
 const decimals = 6;
-const gmxPrice = bigNumberify(2 * precision);
+const fmxPrice = bigNumberify(2 * precision);
 const tokens = [
   {
     name: "GMT",
     symbol: "GMT",
     address: getContract(CHAIN_ID, "GMT"),
     price: bigNumberify(10.97 * precision),
-    iouToken: getContract(CHAIN_ID, "GMT_GMX_IOU"),
+    iouToken: getContract(CHAIN_ID, "GMT_FMX_IOU"),
     cap: MaxUint256,
     bonus: 0,
   },
@@ -51,7 +51,7 @@ const tokens = [
     symbol: "xGMT",
     address: getContract(CHAIN_ID, "XGMT"),
     price: bigNumberify(90.31 * precision),
-    iouToken: getContract(CHAIN_ID, "XGMT_GMX_IOU"),
+    iouToken: getContract(CHAIN_ID, "XGMT_FMX_IOU"),
     cap: MaxUint256,
     bonus: 0,
   },
@@ -60,7 +60,7 @@ const tokens = [
     symbol: "LP",
     address: getContract(CHAIN_ID, "GMT_USDG_PAIR"),
     price: bigNumberify(parseInt(6.68 * precision)),
-    iouToken: getContract(CHAIN_ID, "GMT_USDG_GMX_IOU"),
+    iouToken: getContract(CHAIN_ID, "GMT_USDG_FMX_IOU"),
     cap: expandDecimals(483129, 18),
     bonus: 10,
   },
@@ -69,14 +69,14 @@ const tokens = [
     symbol: "LP",
     address: getContract(CHAIN_ID, "XGMT_USDG_PAIR"),
     price: bigNumberify(parseInt(19.27 * precision)),
-    iouToken: getContract(CHAIN_ID, "XGMT_USDG_GMX_IOU"),
+    iouToken: getContract(CHAIN_ID, "XGMT_USDG_FMX_IOU"),
     cap: expandDecimals(150191, 18),
     bonus: 10,
   },
 ];
 
 const readerAddress = getContract(CHAIN_ID, "Reader");
-const gmxMigratorAddress = getContract(CHAIN_ID, "GmxMigrator");
+const fmxMigratorAddress = getContract(CHAIN_ID, "FmxMigrator");
 
 function MigrationModal(props) {
   const {
@@ -97,7 +97,7 @@ function MigrationModal(props) {
   const [isApproving, setIsApproving] = useState(false);
 
   const { data: tokenAllowance, mutate: updateTokenAllowance } = useSWR(
-    [active, CHAIN_ID, token.address, "allowance", account, gmxMigratorAddress],
+    [active, CHAIN_ID, token.address, "allowance", account, fmxMigratorAddress],
     {
       fetcher: contractFetcher(library, Token),
     }
@@ -131,13 +131,13 @@ function MigrationModal(props) {
   let totalAmountUsd;
 
   if (amount) {
-    baseAmount = amount.mul(token.price).div(gmxPrice);
+    baseAmount = amount.mul(token.price).div(fmxPrice);
     bonusAmount = baseAmount.mul(token.bonus).div(100);
     totalAmount = baseAmount.add(bonusAmount);
 
-    baseAmountUsd = baseAmount.mul(gmxPrice);
-    bonusAmountUsd = bonusAmount.mul(gmxPrice);
-    totalAmountUsd = totalAmount.mul(gmxPrice);
+    baseAmountUsd = baseAmount.mul(fmxPrice);
+    bonusAmountUsd = bonusAmount.mul(fmxPrice);
+    totalAmountUsd = totalAmount.mul(fmxPrice);
   }
 
   const getError = () => {
@@ -155,7 +155,7 @@ function MigrationModal(props) {
         setIsApproving,
         library,
         tokenAddress: token.address,
-        spender: gmxMigratorAddress,
+        spender: fmxMigratorAddress,
         chainId: CHAIN_ID,
         onApproveSubmitted: () => {
           setIsPendingApproval(true);
@@ -165,7 +165,7 @@ function MigrationModal(props) {
     }
 
     setIsMigrating(true);
-    const contract = new ethers.Contract(gmxMigratorAddress, GmxMigrator.abi, library.getSigner());
+    const contract = new ethers.Contract(fmxMigratorAddress, FmxMigrator.abi, library.getSigner());
     contract
       .migrate(token.address, amount)
       .then(async (res) => {
@@ -256,7 +256,7 @@ function MigrationModal(props) {
             <div className="App-info-label">{token.bonus > 0 ? "Base Tokens" : "To Receive"}</div>
             <div className="align-right">
               {baseAmount &&
-                `${formatAmount(baseAmount, 18, 4, true)} GMX ($${formatAmount(
+                `${formatAmount(baseAmount, 18, 4, true)} FMX ($${formatAmount(
                   baseAmountUsd,
                   18 + decimals,
                   2,
@@ -272,7 +272,7 @@ function MigrationModal(props) {
               </div>
               <div className="align-right">
                 {bonusAmount &&
-                  `${formatAmount(bonusAmount, 18, 4, true)} GMX ($${formatAmount(
+                  `${formatAmount(bonusAmount, 18, 4, true)} FMX ($${formatAmount(
                     bonusAmountUsd,
                     18 + decimals,
                     2,
@@ -289,7 +289,7 @@ function MigrationModal(props) {
               </div>
               <div className="align-right">
                 {totalAmount &&
-                  `${formatAmount(totalAmount, 18, 4, true)} GMX ($${formatAmount(
+                  `${formatAmount(totalAmount, 18, 4, true)} FMX ($${formatAmount(
                     totalAmountUsd,
                     18 + decimals,
                     2,
@@ -345,26 +345,26 @@ export default function Migration() {
   );
 
   const { data: migratedAmounts, mutate: updateMigratedAmounts } = useSWR(
-    ["Migration:migratedAmounts", CHAIN_ID, gmxMigratorAddress, "getTokenAmounts"],
+    ["Migration:migratedAmounts", CHAIN_ID, fmxMigratorAddress, "getTokenAmounts"],
     {
-      fetcher: contractFetcher(library, GmxMigrator, [tokenAddresses]),
+      fetcher: contractFetcher(library, FmxMigrator, [tokenAddresses]),
     }
   );
 
-  let gmxBalance;
-  let totalMigratedGmx;
+  let fmxBalance;
+  let totalMigratedFmx;
   let totalMigratedUsd;
 
   if (iouBalances) {
-    gmxBalance = bigNumberify(0);
-    totalMigratedGmx = bigNumberify(0);
+    fmxBalance = bigNumberify(0);
+    totalMigratedFmx = bigNumberify(0);
 
     for (let i = 0; i < iouBalances.length / 2; i++) {
-      gmxBalance = gmxBalance.add(iouBalances[i * 2]);
-      totalMigratedGmx = totalMigratedGmx.add(iouBalances[i * 2 + 1]);
+      fmxBalance = fmxBalance.add(iouBalances[i * 2]);
+      totalMigratedFmx = totalMigratedFmx.add(iouBalances[i * 2 + 1]);
     }
 
-    totalMigratedUsd = totalMigratedGmx.mul(gmxPrice);
+    totalMigratedUsd = totalMigratedFmx.mul(fmxPrice);
   }
 
   useEffect(() => {
@@ -413,12 +413,12 @@ export default function Migration() {
         </div>
       </div>
       <div className="Migration-note">
-        <Trans>Your wallet: {formatAmount(gmxBalance, 18, 4, true)}</Trans> GMX
+        <Trans>Your wallet: {formatAmount(fmxBalance, 18, 4, true)}</Trans> FMX
       </div>
       <div className="Migration-note">
         <Trans>
           Please read the{" "}
-          <ExternalLink href="https://gambitprotocol.medium.com/gambit-gmx-migration-now-live-2ba999d208dd">
+          <ExternalLink href="https://gambitprotocol.medium.com/gambit-fmx-migration-now-live-2ba999d208dd">
             Medium post
           </ExternalLink>{" "}
           before migrating.

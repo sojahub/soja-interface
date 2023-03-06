@@ -25,25 +25,25 @@ export function RedirectPopupModal({
       setIsVisible={setRedirectModalVisible}
       label={t`Launch App`}
     >
-      <Trans>You are leaving GMX.io and will be redirected to a third party, independent website.</Trans>
+      <Trans>You are leaving FMX.io and will be redirected to a third party, independent website.</Trans>
       <br />
       <br />
       <Trans>
         The website is a community deployed and maintained instance of the open source{" "}
-        <ExternalLink href="https://github.com/gmx-io/gmx-interface">GMX front end</ExternalLink>, hosted and served on
+        <ExternalLink href="https://github.com/fmx-io/fmx-interface">FMX front end</ExternalLink>, hosted and served on
         the distributed, peer-to-peer <ExternalLink href="https://ipfs.io/">IPFS network</ExternalLink>.
       </Trans>
       <br />
       <br />
       <Trans>
         Alternative links can be found in the{" "}
-        <ExternalLink href="https://gmxio.gitbook.io/gmx/app-links">docs</ExternalLink>.
+        <ExternalLink href="https://fmxio.gitbook.io/fmx/app-links">docs</ExternalLink>.
         <br />
         <br />
-        By clicking Agree you accept the <ExternalLink href="https://gmx.io/#/terms-and-conditions">
+        By clicking Agree you accept the <ExternalLink href="https://fmx.io/#/terms-and-conditions">
           T&Cs
         </ExternalLink>{" "}
-        and <ExternalLink href="https://gmx.io/#/referral-terms">Referral T&Cs</ExternalLink>.
+        and <ExternalLink href="https://fmx.io/#/referral-terms">Referral T&Cs</ExternalLink>.
         <br />
         <br />
       </Trans>

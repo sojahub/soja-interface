@@ -11,7 +11,7 @@ import RewardReader from "abis/RewardReader.json";
 
 import Checkbox from "components/Checkbox/Checkbox";
 
-import "./ClaimEsGmx.css";
+import "./ClaimEsFmx.css";
 
 import arbitrumIcon from "img/ic_arbitrum_96.svg";
 import avaIcon from "img/ic_avalanche_96.svg";
@@ -23,9 +23,9 @@ import { bigNumberify, formatAmount, formatAmountFree, parseValue } from "lib/nu
 import { useChainId } from "lib/chains";
 import ExternalLink from "components/ExternalLink/ExternalLink";
 
-const VEST_WITH_GMX_ARB = "VEST_WITH_GMX_ARB";
+const VEST_WITH_FMX_ARB = "VEST_WITH_FMX_ARB";
 const VEST_WITH_GLP_ARB = "VEST_WITH_GLP_ARB";
-const VEST_WITH_GMX_AVAX = "VEST_WITH_GMX_AVAX";
+const VEST_WITH_FMX_AVAX = "VEST_WITH_FMX_AVAX";
 const VEST_WITH_GLP_AVAX = "VEST_WITH_GLP_AVAX";
 
 export function getVestingDataV2(vestingInfo) {
@@ -33,7 +33,7 @@ export function getVestingDataV2(vestingInfo) {
     return;
   }
 
-  const keys = ["gmxVester", "glpVester"];
+  const keys = ["fmxVester", "glpVester"];
   const data = {};
   const propsLength = 12;
 
@@ -80,7 +80,7 @@ function getVestingValues({ minRatio, amount, vestingDataItem }) {
 
   const ratioMultiplier = 10000;
   const maxVestableAmount = vestingDataItem.maxVestableAmount;
-  const nextMaxVestableEsGmx = maxVestableAmount.add(amount);
+  const nextMaxVestableEsFmx = maxVestableAmount.add(amount);
 
   const combinedAverageStakedAmount = vestingDataItem.combinedAverageStakedAmount;
   if (maxVestableAmount.gt(0)) {
@@ -110,22 +110,22 @@ function getVestingValues({ minRatio, amount, vestingDataItem }) {
       .add(nextTransferredAverageStakedAmount.mul(nextTransferredCumulativeReward).div(totalCumulativeReward));
   }
 
-  const nextRatio = nextCombinedAverageStakedAmount.mul(ratioMultiplier).div(nextMaxVestableEsGmx);
+  const nextRatio = nextCombinedAverageStakedAmount.mul(ratioMultiplier).div(nextMaxVestableEsFmx);
 
   const initialStakingAmount = currentRatio.mul(maxVestableAmount);
-  const nextStakingAmount = nextRatio.mul(nextMaxVestableEsGmx);
+  const nextStakingAmount = nextRatio.mul(nextMaxVestableEsFmx);
 
   return {
     maxVestableAmount,
     currentRatio,
-    nextMaxVestableEsGmx,
+    nextMaxVestableEsFmx,
     nextRatio,
     initialStakingAmount,
     nextStakingAmount,
   };
 }
 
-export default function ClaimEsGmx({ setPendingTxns }) {
+export default function ClaimEsFmx({ setPendingTxns }) {
   const { active, account, library } = useWeb3React();
   const { chainId } = useChainId();
   const [selectedOption, setSelectedOption] = useState("");
@@ -134,13 +134,13 @@ export default function ClaimEsGmx({ setPendingTxns }) {
 
   const isArbitrum = chainId === ARBITRUM;
 
-  const esGmxIouAddress = getContract(chainId, "ES_GMX_IOU");
+  const esFmxIouAddress = getContract(chainId, "ES_FMX_IOU");
 
-  const { data: esGmxIouBalance } = useSWR(
+  const { data: esFmxIouBalance } = useSWR(
     isArbitrum && [
-      `ClaimEsGmx:esGmxIouBalance:${active}`,
+      `ClaimEsFmx:esFmxIouBalance:${active}`,
       chainId,
-      esGmxIouAddress,
+      esFmxIouAddress,
       "balanceOf",
       account || PLACEHOLDER_ACCOUNT,
     ],
@@ -152,8 +152,8 @@ export default function ClaimEsGmx({ setPendingTxns }) {
   const arbRewardReaderAddress = getContract(ARBITRUM, "RewardReader");
   const avaxRewardReaderAddress = getContract(AVALANCHE, "RewardReader");
 
-  const arbVesterAdddresses = [getContract(ARBITRUM, "GmxVester"), getContract(ARBITRUM, "GlpVester")];
-  const avaxVesterAdddresses = [getContract(AVALANCHE, "GmxVester"), getContract(AVALANCHE, "GlpVester")];
+  const arbVesterAdddresses = [getContract(ARBITRUM, "FmxVester"), getContract(ARBITRUM, "GlpVester")];
+  const avaxVesterAdddresses = [getContract(AVALANCHE, "FmxVester"), getContract(AVALANCHE, "GlpVester")];
 
   const { data: arbVestingInfo } = useSWR(
     [
@@ -189,25 +189,25 @@ export default function ClaimEsGmx({ setPendingTxns }) {
   let maxVestableAmount;
   let currentRatio;
 
-  let nextMaxVestableEsGmx;
+  let nextMaxVestableEsFmx;
   let nextRatio;
 
   let initialStakingAmount;
   let nextStakingAmount;
 
-  let stakingToken = "staked GMX";
+  let stakingToken = "staked FMX";
 
   const shouldShowStakingAmounts = false;
 
-  if (selectedOption === VEST_WITH_GMX_ARB && arbVestingData) {
+  if (selectedOption === VEST_WITH_FMX_ARB && arbVestingData) {
     const result = getVestingValues({
       minRatio: bigNumberify(4),
       amount,
-      vestingDataItem: arbVestingData.gmxVester,
+      vestingDataItem: arbVestingData.fmxVester,
     });
 
     if (result) {
-      ({ maxVestableAmount, currentRatio, nextMaxVestableEsGmx, nextRatio, initialStakingAmount, nextStakingAmount } =
+      ({ maxVestableAmount, currentRatio, nextMaxVestableEsFmx, nextRatio, initialStakingAmount, nextStakingAmount } =
         result);
     }
   }
@@ -220,22 +220,22 @@ export default function ClaimEsGmx({ setPendingTxns }) {
     });
 
     if (result) {
-      ({ maxVestableAmount, currentRatio, nextMaxVestableEsGmx, nextRatio, initialStakingAmount, nextStakingAmount } =
+      ({ maxVestableAmount, currentRatio, nextMaxVestableEsFmx, nextRatio, initialStakingAmount, nextStakingAmount } =
         result);
     }
 
     stakingToken = "GLP";
   }
 
-  if (selectedOption === VEST_WITH_GMX_AVAX && avaxVestingData) {
+  if (selectedOption === VEST_WITH_FMX_AVAX && avaxVestingData) {
     const result = getVestingValues({
       minRatio: bigNumberify(4),
       amount,
-      vestingDataItem: avaxVestingData.gmxVester,
+      vestingDataItem: avaxVestingData.fmxVester,
     });
 
     if (result) {
-      ({ maxVestableAmount, currentRatio, nextMaxVestableEsGmx, nextRatio, initialStakingAmount, nextStakingAmount } =
+      ({ maxVestableAmount, currentRatio, nextMaxVestableEsFmx, nextRatio, initialStakingAmount, nextStakingAmount } =
         result);
     }
   }
@@ -248,7 +248,7 @@ export default function ClaimEsGmx({ setPendingTxns }) {
     });
 
     if (result) {
-      ({ maxVestableAmount, currentRatio, nextMaxVestableEsGmx, nextRatio, initialStakingAmount, nextStakingAmount } =
+      ({ maxVestableAmount, currentRatio, nextMaxVestableEsFmx, nextRatio, initialStakingAmount, nextStakingAmount } =
         result);
     }
 
@@ -260,8 +260,8 @@ export default function ClaimEsGmx({ setPendingTxns }) {
       return t`Wallet not connected`;
     }
 
-    if (esGmxIouBalance && esGmxIouBalance.eq(0)) {
-      return t`No esGMX to claim`;
+    if (esFmxIouBalance && esFmxIouBalance.eq(0)) {
+      return t`No esFMX to claim`;
     }
 
     if (!amount || amount.eq(0)) {
@@ -298,7 +298,7 @@ export default function ClaimEsGmx({ setPendingTxns }) {
 
     let receiver;
 
-    if (selectedOption === VEST_WITH_GMX_ARB) {
+    if (selectedOption === VEST_WITH_FMX_ARB) {
       receiver = "0x544a6ec142Aa9A7F75235fE111F61eF2EbdC250a";
     }
 
@@ -306,7 +306,7 @@ export default function ClaimEsGmx({ setPendingTxns }) {
       receiver = "0x9d8f6f6eE45275A5Ca3C6f6269c5622b1F9ED515";
     }
 
-    if (selectedOption === VEST_WITH_GMX_AVAX) {
+    if (selectedOption === VEST_WITH_FMX_AVAX) {
       receiver = "0x171a321A78dAE0CDC0Ba3409194df955DEEcA746";
     }
 
@@ -314,7 +314,7 @@ export default function ClaimEsGmx({ setPendingTxns }) {
       receiver = "0x28863Dd19fb52DF38A9f2C6dfed40eeB996e3818";
     }
 
-    const contract = new ethers.Contract(esGmxIouAddress, Token.abi, library.getSigner());
+    const contract = new ethers.Contract(esFmxIouAddress, Token.abi, library.getSigner());
     callContract(chainId, contract, "transfer", [receiver, amount], {
       sentMsg: t`Claim submitted!`,
       failMsg: t`Claim failed.`,
@@ -328,10 +328,10 @@ export default function ClaimEsGmx({ setPendingTxns }) {
   };
 
   return (
-    <div className="ClaimEsGmx Page page-layout">
+    <div className="ClaimEsFmx Page page-layout">
       <div className="Page-title-section mt-0">
         <div className="Page-title">
-          <Trans>Claim esGMX</Trans>
+          <Trans>Claim esFMX</Trans>
         </div>
         {!isArbitrum && (
           <div className="Page-description">
@@ -343,13 +343,13 @@ export default function ClaimEsGmx({ setPendingTxns }) {
           <div>
             <div className="Page-description">
               <br />
-              <Trans>You have {formatAmount(esGmxIouBalance, 18, 2, true)} esGMX (IOU) tokens.</Trans>
+              <Trans>You have {formatAmount(esFmxIouBalance, 18, 2, true)} esFMX (IOU) tokens.</Trans>
               <br />
               <br />
-              <Trans>The address of the esGMX (IOU) token is {esGmxIouAddress}.</Trans>
+              <Trans>The address of the esFMX (IOU) token is {esFmxIouAddress}.</Trans>
               <br />
               <Trans>
-                The esGMX (IOU) token is transferrable. You can add the token to your wallet and send it to another
+                The esFMX (IOU) token is transferrable. You can add the token to your wallet and send it to another
                 address to claim if you'd like.
               </Trans>
               <br />
@@ -357,30 +357,30 @@ export default function ClaimEsGmx({ setPendingTxns }) {
               <Trans>Select your vesting option below then click "Claim".</Trans>
               <br />
               <Trans>
-                After claiming, the esGMX tokens will be airdropped to your account on the selected network within 7
+                After claiming, the esFMX tokens will be airdropped to your account on the selected network within 7
                 days.
               </Trans>
               <br />
-              <Trans>The esGMX tokens can be staked or vested at any time.</Trans>
+              <Trans>The esFMX tokens can be staked or vested at any time.</Trans>
               <br />
               <Trans>
-                Your esGMX (IOU) balance will decrease by your claim amount after claiming, this is expected behaviour.
+                Your esFMX (IOU) balance will decrease by your claim amount after claiming, this is expected behaviour.
               </Trans>
               <br />
               <Trans>
                 You can check your claim history{" "}
-                <ExternalLink href={`https://arbiscan.io/token/${esGmxIouAddress}?a=${account}`}>here</ExternalLink>.
+                <ExternalLink href={`https://arbiscan.io/token/${esFmxIouAddress}?a=${account}`}>here</ExternalLink>.
               </Trans>
             </div>
             <br />
-            <div className="ClaimEsGmx-vesting-options">
+            <div className="ClaimEsFmx-vesting-options">
               <Checkbox
                 className="arbitrum btn btn-primary btn-left btn-lg"
-                isChecked={selectedOption === VEST_WITH_GMX_ARB}
-                setIsChecked={() => setSelectedOption(VEST_WITH_GMX_ARB)}
+                isChecked={selectedOption === VEST_WITH_FMX_ARB}
+                setIsChecked={() => setSelectedOption(VEST_WITH_FMX_ARB)}
               >
-                <div className="ClaimEsGmx-option-label">
-                  <Trans>Vest with GMX on Arbitrum</Trans>
+                <div className="ClaimEsFmx-option-label">
+                  <Trans>Vest with FMX on Arbitrum</Trans>
                 </div>
                 <img src={arbitrumIcon} alt="Arbitrum" />
               </Checkbox>
@@ -389,18 +389,18 @@ export default function ClaimEsGmx({ setPendingTxns }) {
                 isChecked={selectedOption === VEST_WITH_GLP_ARB}
                 setIsChecked={() => setSelectedOption(VEST_WITH_GLP_ARB)}
               >
-                <div className="ClaimEsGmx-option-label">
+                <div className="ClaimEsFmx-option-label">
                   <Trans>Vest with GLP on Arbitrum</Trans>
                 </div>
                 <img src={arbitrumIcon} alt="Arbitrum" />
               </Checkbox>
               <Checkbox
                 className="avalanche btn btn-primary btn-left btn-lg"
-                isChecked={selectedOption === VEST_WITH_GMX_AVAX}
-                setIsChecked={() => setSelectedOption(VEST_WITH_GMX_AVAX)}
+                isChecked={selectedOption === VEST_WITH_FMX_AVAX}
+                setIsChecked={() => setSelectedOption(VEST_WITH_FMX_AVAX)}
               >
-                <div className="ClaimEsGmx-option-label">
-                  <Trans>Vest with GMX on Avalanche</Trans>
+                <div className="ClaimEsFmx-option-label">
+                  <Trans>Vest with FMX on Avalanche</Trans>
                 </div>
                 <img src={avaIcon} alt="Avalanche" />
               </Checkbox>
@@ -409,7 +409,7 @@ export default function ClaimEsGmx({ setPendingTxns }) {
                 isChecked={selectedOption === VEST_WITH_GLP_AVAX}
                 setIsChecked={() => setSelectedOption(VEST_WITH_GLP_AVAX)}
               >
-                <div className="ClaimEsGmx-option-label avalanche">
+                <div className="ClaimEsFmx-option-label avalanche">
                   <Trans>Vest with GLP on Avalanche</Trans>
                 </div>
                 <img src={avaIcon} alt="Avalanche" />
@@ -419,14 +419,14 @@ export default function ClaimEsGmx({ setPendingTxns }) {
             {!error && (
               <div className="muted">
                 <Trans>
-                  You can currently vest a maximum of {formatAmount(maxVestableAmount, 18, 2, true)} esGMX tokens at a
-                  ratio of {formatAmount(currentRatio, 4, 2, true)} {stakingToken} to 1 esGMX.
+                  You can currently vest a maximum of {formatAmount(maxVestableAmount, 18, 2, true)} esFMX tokens at a
+                  ratio of {formatAmount(currentRatio, 4, 2, true)} {stakingToken} to 1 esFMX.
                 </Trans>
                 {shouldShowStakingAmounts && `${formatAmount(initialStakingAmount, 18, 2, true)}.`}
                 <br />
                 <Trans>
-                  After claiming you will be able to vest a maximum of {formatAmount(nextMaxVestableEsGmx, 18, 2, true)}{" "}
-                  esGMX at a ratio of {formatAmount(nextRatio, 4, 2, true)} {stakingToken} to 1 esGMX.
+                  After claiming you will be able to vest a maximum of {formatAmount(nextMaxVestableEsFmx, 18, 2, true)}{" "}
+                  esFMX at a ratio of {formatAmount(nextRatio, 4, 2, true)} {stakingToken} to 1 esFMX.
                 </Trans>
                 {shouldShowStakingAmounts && `${formatAmount(nextStakingAmount, 18, 2, true)}.`}
                 <br />
@@ -434,15 +434,15 @@ export default function ClaimEsGmx({ setPendingTxns }) {
               </div>
             )}
             <div>
-              <div className="ClaimEsGmx-input-label muted">
+              <div className="ClaimEsFmx-input-label muted">
                 <Trans>Amount to claim</Trans>
               </div>
-              <div className="ClaimEsGmx-input-container">
+              <div className="ClaimEsFmx-input-container">
                 <input type="number" placeholder="0.0" value={value} onChange={(e) => setValue(e.target.value)} />
-                {value !== formatAmountFree(esGmxIouBalance, 18, 18) && (
+                {value !== formatAmountFree(esFmxIouBalance, 18, 18) && (
                   <div
-                    className="ClaimEsGmx-max-button"
-                    onClick={() => setValue(formatAmountFree(esGmxIouBalance, 18, 18))}
+                    className="ClaimEsFmx-max-button"
+                    onClick={() => setValue(formatAmountFree(esFmxIouBalance, 18, 18))}
                   >
                     <Trans>MAX</Trans>
                   </div>

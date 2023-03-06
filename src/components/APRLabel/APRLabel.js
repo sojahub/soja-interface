@@ -19,7 +19,7 @@ import GlpManager from "abis/GlpManager.json";
 
 import { useWeb3React } from "@web3-react/core";
 
-import { useGmxPrice } from "domain/legacy";
+import { useFmxPrice } from "domain/legacy";
 
 import { getContract } from "config/contracts";
 import { getServerUrl } from "config/backend";
@@ -34,46 +34,46 @@ export default function APRLabel({ chainId, label }) {
 
   const vaultAddress = getContract(chainId, "Vault");
   const nativeTokenAddress = getContract(chainId, "NATIVE_TOKEN");
-  const gmxAddress = getContract(chainId, "GMX");
-  const esGmxAddress = getContract(chainId, "ES_GMX");
-  const bnGmxAddress = getContract(chainId, "BN_GMX");
+  const fmxAddress = getContract(chainId, "FMX");
+  const esFmxAddress = getContract(chainId, "ES_FMX");
+  const bnFmxAddress = getContract(chainId, "BN_FMX");
   const glpAddress = getContract(chainId, "GLP");
 
-  const stakedGmxTrackerAddress = getContract(chainId, "StakedGmxTracker");
-  const bonusGmxTrackerAddress = getContract(chainId, "BonusGmxTracker");
-  const feeGmxTrackerAddress = getContract(chainId, "FeeGmxTracker");
+  const stakedFmxTrackerAddress = getContract(chainId, "StakedFmxTracker");
+  const bonusFmxTrackerAddress = getContract(chainId, "BonusFmxTracker");
+  const feeFmxTrackerAddress = getContract(chainId, "FeeFmxTracker");
 
   const stakedGlpTrackerAddress = getContract(chainId, "StakedGlpTracker");
   const feeGlpTrackerAddress = getContract(chainId, "FeeGlpTracker");
 
   const glpManagerAddress = getContract(chainId, "GlpManager");
 
-  const gmxVesterAddress = getContract(chainId, "GmxVester");
+  const fmxVesterAddress = getContract(chainId, "FmxVester");
   const glpVesterAddress = getContract(chainId, "GlpVester");
 
-  const vesterAddresses = [gmxVesterAddress, glpVesterAddress];
+  const vesterAddresses = [fmxVesterAddress, glpVesterAddress];
 
-  const walletTokens = [gmxAddress, esGmxAddress, glpAddress, stakedGmxTrackerAddress];
+  const walletTokens = [fmxAddress, esFmxAddress, glpAddress, stakedFmxTrackerAddress];
   const depositTokens = [
-    gmxAddress,
-    esGmxAddress,
-    stakedGmxTrackerAddress,
-    bonusGmxTrackerAddress,
-    bnGmxAddress,
+    fmxAddress,
+    esFmxAddress,
+    stakedFmxTrackerAddress,
+    bonusFmxTrackerAddress,
+    bnFmxAddress,
     glpAddress,
   ];
   const rewardTrackersForDepositBalances = [
-    stakedGmxTrackerAddress,
-    stakedGmxTrackerAddress,
-    bonusGmxTrackerAddress,
-    feeGmxTrackerAddress,
-    feeGmxTrackerAddress,
+    stakedFmxTrackerAddress,
+    stakedFmxTrackerAddress,
+    bonusFmxTrackerAddress,
+    feeFmxTrackerAddress,
+    feeFmxTrackerAddress,
     feeGlpTrackerAddress,
   ];
   const rewardTrackersForStakingInfo = [
-    stakedGmxTrackerAddress,
-    bonusGmxTrackerAddress,
-    feeGmxTrackerAddress,
+    stakedFmxTrackerAddress,
+    bonusFmxTrackerAddress,
+    feeFmxTrackerAddress,
     stakedGlpTrackerAddress,
     feeGlpTrackerAddress,
   ];
@@ -99,8 +99,8 @@ export default function APRLabel({ chainId, label }) {
     }
   );
 
-  const { data: stakedGmxSupply } = useSWR(
-    [`StakeV2:stakedGmxSupply:${active}`, chainId, gmxAddress, "balanceOf", stakedGmxTrackerAddress],
+  const { data: stakedFmxSupply } = useSWR(
+    [`StakeV2:stakedFmxSupply:${active}`, chainId, fmxAddress, "balanceOf", stakedFmxTrackerAddress],
     {
       fetcher: contractFetcher(undefined, Token),
     }
@@ -124,10 +124,10 @@ export default function APRLabel({ chainId, label }) {
     }
   );
 
-  const { gmxPrice } = useGmxPrice(chainId, {}, active);
+  const { fmxPrice } = useFmxPrice(chainId, {}, active);
 
-  const gmxSupplyUrl = getServerUrl(chainId, "/gmx_supply");
-  const { data: gmxSupply } = useSWR([gmxSupplyUrl], {
+  const fmxSupplyUrl = getServerUrl(chainId, "/fmx_supply");
+  const { data: fmxSupply } = useSWR([fmxSupplyUrl], {
     fetcher: (...args) => fetch(...args).then((res) => res.text()),
   });
 
@@ -149,9 +149,9 @@ export default function APRLabel({ chainId, label }) {
     vestingData,
     aum,
     nativeTokenPrice,
-    stakedGmxSupply,
-    gmxPrice,
-    gmxSupply
+    stakedFmxSupply,
+    fmxPrice,
+    fmxSupply
   );
 
   return <>{`${formatKeyAmount(processedData, label, 2, 2, true)}%`}</>;

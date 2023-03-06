@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 import { Trans } from "@lingui/macro";
 
-import gmxBigIcon from "img/ic_gmx_custom.svg";
+import fmxBigIcon from "img/ic_fmx_custom.svg";
 import glpBigIcon from "img/ic_glp_custom.svg";
 
 import { isHomeSite } from "lib/legacy";
@@ -62,26 +62,26 @@ export default function TokenCard({ showRedirectModal, redirectPopupTimestamp })
     <div className="Home-token-card-options">
       <div className="Home-token-card-option">
         <div className="Home-token-card-option-icon">
-          <img src={gmxBigIcon} alt="gmxBigIcon" /> GMX
+          <img src={fmxBigIcon} alt="fmxBigIcon" /> FMX
         </div>
         <div className="Home-token-card-option-info">
           <div className="Home-token-card-option-title">
-            <Trans>GMX is the utility and governance token. Accrues 30% of the platform's generated fees.</Trans>
+            <Trans>FMX is the utility and governance token. Accrues 30% of the platform's generated fees.</Trans>
           </div>
           <div className="Home-token-card-option-apr">
-            <Trans>Arbitrum APR:</Trans> <APRLabel chainId={ARBITRUM} label="gmxAprTotal" />,{" "}
-            <Trans>Avalanche APR:</Trans> <APRLabel chainId={AVALANCHE} label="gmxAprTotal" key="AVALANCHE" />
+            <Trans>Arbitrum APR:</Trans> <APRLabel chainId={ARBITRUM} label="fmxAprTotal" />,{" "}
+            <Trans>Avalanche APR:</Trans> <APRLabel chainId={AVALANCHE} label="fmxAprTotal" key="AVALANCHE" />
           </div>
           <div className="Home-token-card-option-action">
             <div className="buy">
-              <BuyLink to="/buy_gmx" className="default-btn" network={ARBITRUM}>
+              <BuyLink to="/buy_fmx" className="default-btn" network={ARBITRUM}>
                 <Trans>Buy on Arbitrum</Trans>
               </BuyLink>
-              <BuyLink to="/buy_gmx" className="default-btn" network={AVALANCHE}>
+              <BuyLink to="/buy_fmx" className="default-btn" network={AVALANCHE}>
                 <Trans>Buy on Avalanche</Trans>
               </BuyLink>
             </div>
-            <ExternalLink href="https://gmxio.gitbook.io/gmx/tokenomics" className="default-btn read-more">
+            <ExternalLink href="https://fmxio.gitbook.io/fmx/tokenomics" className="default-btn read-more">
               <Trans>Read more</Trans>
             </ExternalLink>
           </div>
@@ -109,7 +109,7 @@ export default function TokenCard({ showRedirectModal, redirectPopupTimestamp })
               </BuyLink>
             </div>
             <a
-              href="https://gmxio.gitbook.io/gmx/glp"
+              href="https://fmxio.gitbook.io/fmx/glp"
               target="_blank"
               rel="noreferrer"
               className="default-btn read-more"

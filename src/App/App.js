@@ -27,10 +27,10 @@ import OrdersOverview from "pages/OrdersOverview/OrdersOverview";
 import PositionsOverview from "pages/PositionsOverview/PositionsOverview";
 import Referrals from "pages/Referrals/Referrals";
 import BuyGlp from "pages/BuyGlp/BuyGlp";
-import BuyGMX from "pages/BuyGMX/BuyGMX";
+import BuyFMX from "pages/BuyFMX/BuyFMX";
 import Buy from "pages/Buy/Buy";
 import NftWallet from "pages/NftWallet/NftWallet";
-import ClaimEsGmx from "pages/ClaimEsGmx/ClaimEsGmx";
+import ClaimEsFmx from "pages/ClaimEsFmx/ClaimEsFmx";
 import BeginAccountTransfer from "pages/BeginAccountTransfer/BeginAccountTransfer";
 import CompleteAccountTransfer from "pages/CompleteAccountTransfer/CompleteAccountTransfer";
 
@@ -209,12 +209,12 @@ function FullApp() {
           <br />
           {userOnMobileDevice ? (
             <Trans>
-              <ExternalLink href="https://metamask.io">Install MetaMask</ExternalLink>, and use GMX with its built-in
+              <ExternalLink href="https://metamask.io">Install MetaMask</ExternalLink>, and use FMX with its built-in
               browser.
             </Trans>
           ) : (
             <Trans>
-              <ExternalLink href="https://metamask.io">Install MetaMask</ExternalLink> to start using GMX.
+              <ExternalLink href="https://metamask.io">Install MetaMask</ExternalLink> to start using FMX.
             </Trans>
           )}
         </div>
@@ -232,13 +232,13 @@ function FullApp() {
           <br />
           {userOnMobileDevice ? (
             <Trans>
-              <ExternalLink href="https://www.coinbase.com/wallet">Install Coinbase Wallet</ExternalLink>, and use GMX
+              <ExternalLink href="https://www.coinbase.com/wallet">Install Coinbase Wallet</ExternalLink>, and use FMX
               with its built-in browser.
             </Trans>
           ) : (
             <Trans>
               <ExternalLink href="https://www.coinbase.com/wallet">Install Coinbase Wallet</ExternalLink> to start using
-              GMX.
+              FMX.
             </Trans>
           )}
         </div>
@@ -503,8 +503,8 @@ function FullApp() {
               <Route exact path="/jobs">
                 <Jobs />
               </Route>
-              <Route exact path="/buy_gmx">
-                <BuyGMX />
+              <Route exact path="/buy_fmx">
+                <BuyFMX />
               </Route>
               <Route exact path="/ecosystem">
                 <Ecosystem />
@@ -518,8 +518,8 @@ function FullApp() {
               <Route exact path="/nft_wallet">
                 <NftWallet />
               </Route>
-              <Route exact path="/claim_es_gmx">
-                <ClaimEsGmx setPendingTxns={setPendingTxns} />
+              <Route exact path="/claim_es_fmx">
+                <ClaimEsFmx setPendingTxns={setPendingTxns} />
               </Route>
               <Route exact path="/actions">
                 <Actions />

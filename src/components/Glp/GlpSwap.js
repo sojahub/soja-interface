@@ -23,7 +23,7 @@ import {
   importImage,
 } from "lib/legacy";
 
-import { useGmxPrice } from "domain/legacy";
+import { useFmxPrice } from "domain/legacy";
 
 import TokenSelector from "../Exchange/TokenSelector";
 import BuyInputSection from "../BuyInputSection/BuyInputSection";
@@ -207,7 +207,7 @@ export default function GlpSwap(props) {
     }
   );
 
-  const { gmxPrice } = useGmxPrice(chainId, { arbitrum: chainId === ARBITRUM ? library : undefined }, active);
+  const { fmxPrice } = useFmxPrice(chainId, { arbitrum: chainId === ARBITRUM ? library : undefined }, active);
 
   const rewardTrackersForStakingInfo = [stakedGlpTrackerAddress, feeGlpTrackerAddress];
   const { data: stakingInfo } = useSWR(
@@ -312,7 +312,7 @@ export default function GlpSwap(props) {
   let stakedGlpTrackerApr;
 
   if (
-    gmxPrice &&
+    fmxPrice &&
     stakingData &&
     stakingData.stakedGlpTracker &&
     stakingData.stakedGlpTracker.tokensPerInterval &&
@@ -321,7 +321,7 @@ export default function GlpSwap(props) {
   ) {
     stakedGlpTrackerAnnualRewardsUsd = stakingData.stakedGlpTracker.tokensPerInterval
       .mul(SECONDS_PER_YEAR)
-      .mul(gmxPrice)
+      .mul(fmxPrice)
       .div(expandDecimals(1, 18));
     stakedGlpTrackerApr = stakedGlpTrackerAnnualRewardsUsd.mul(BASIS_POINTS_DIVISOR).div(glpSupplyUsd);
     totalApr = totalApr.add(stakedGlpTrackerApr);
@@ -784,7 +784,7 @@ export default function GlpSwap(props) {
                           showDollar={false}
                         />
                         <StatsTooltipRow
-                          label={t`Escrowed GMX APR`}
+                          label={t`Escrowed FMX APR`}
                           value={`${formatAmount(stakedGlpTrackerApr, 2, 2, false)}%`}
                           showDollar={false}
                         />

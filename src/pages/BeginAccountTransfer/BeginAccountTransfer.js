@@ -49,13 +49,13 @@ export default function BeginAccountTransfer(props) {
     parsedReceiver = receiver;
   }
 
-  const gmxAddress = getContract(chainId, "GMX");
-  const gmxVesterAddress = getContract(chainId, "GmxVester");
+  const fmxAddress = getContract(chainId, "FMX");
+  const fmxVesterAddress = getContract(chainId, "FmxVester");
   const glpVesterAddress = getContract(chainId, "GlpVester");
 
   const rewardRouterAddress = getContract(chainId, "RewardRouter");
 
-  const { data: gmxVesterBalance } = useSWR([active, chainId, gmxVesterAddress, "balanceOf", account], {
+  const { data: fmxVesterBalance } = useSWR([active, chainId, fmxVesterAddress, "balanceOf", account], {
     fetcher: contractFetcher(library, Token),
   });
 
@@ -63,9 +63,9 @@ export default function BeginAccountTransfer(props) {
     fetcher: contractFetcher(library, Token),
   });
 
-  const stakedGmxTrackerAddress = getContract(chainId, "StakedGmxTracker");
-  const { data: cumulativeGmxRewards } = useSWR(
-    [active, chainId, stakedGmxTrackerAddress, "cumulativeRewards", parsedReceiver],
+  const stakedFmxTrackerAddress = getContract(chainId, "StakedFmxTracker");
+  const { data: cumulativeFmxRewards } = useSWR(
+    [active, chainId, stakedFmxTrackerAddress, "cumulativeRewards", parsedReceiver],
     {
       fetcher: contractFetcher(library, RewardTracker),
     }
@@ -79,8 +79,8 @@ export default function BeginAccountTransfer(props) {
     }
   );
 
-  const { data: transferredCumulativeGmxRewards } = useSWR(
-    [active, chainId, gmxVesterAddress, "transferredCumulativeRewards", parsedReceiver],
+  const { data: transferredCumulativeFmxRewards } = useSWR(
+    [active, chainId, fmxVesterAddress, "transferredCumulativeRewards", parsedReceiver],
     {
       fetcher: contractFetcher(library, Vester),
     }
@@ -97,24 +97,24 @@ export default function BeginAccountTransfer(props) {
     fetcher: contractFetcher(library, RewardRouter),
   });
 
-  const { data: gmxAllowance } = useSWR([active, chainId, gmxAddress, "allowance", account, stakedGmxTrackerAddress], {
+  const { data: fmxAllowance } = useSWR([active, chainId, fmxAddress, "allowance", account, stakedFmxTrackerAddress], {
     fetcher: contractFetcher(library, Token),
   });
 
-  const { data: gmxStaked } = useSWR(
-    [active, chainId, stakedGmxTrackerAddress, "depositBalances", account, gmxAddress],
+  const { data: fmxStaked } = useSWR(
+    [active, chainId, stakedFmxTrackerAddress, "depositBalances", account, fmxAddress],
     {
       fetcher: contractFetcher(library, RewardTracker),
     }
   );
 
-  const needApproval = gmxAllowance && gmxStaked && gmxStaked.gt(gmxAllowance);
+  const needApproval = fmxAllowance && fmxStaked && fmxStaked.gt(fmxAllowance);
 
-  const hasVestedGmx = gmxVesterBalance && gmxVesterBalance.gt(0);
+  const hasVestedFmx = fmxVesterBalance && fmxVesterBalance.gt(0);
   const hasVestedGlp = glpVesterBalance && glpVesterBalance.gt(0);
-  const hasStakedGmx =
-    (cumulativeGmxRewards && cumulativeGmxRewards.gt(0)) ||
-    (transferredCumulativeGmxRewards && transferredCumulativeGmxRewards.gt(0));
+  const hasStakedFmx =
+    (cumulativeFmxRewards && cumulativeFmxRewards.gt(0)) ||
+    (transferredCumulativeFmxRewards && transferredCumulativeFmxRewards.gt(0));
   const hasStakedGlp =
     (cumulativeGlpRewards && cumulativeGlpRewards.gt(0)) ||
     (transferredCumulativeGlpRewards && transferredCumulativeGlpRewards.gt(0));
@@ -124,8 +124,8 @@ export default function BeginAccountTransfer(props) {
     if (!account) {
       return t`Wallet is not connected`;
     }
-    if (hasVestedGmx) {
-      return t`Vested GMX not withdrawn`;
+    if (hasVestedFmx) {
+      return t`Vested FMX not withdrawn`;
     }
     if (hasVestedGlp) {
       return t`Vested GLP not withdrawn`;
@@ -136,7 +136,7 @@ export default function BeginAccountTransfer(props) {
     if (!ethers.utils.isAddress(receiver)) {
       return t`Invalid Receiver Address`;
     }
-    if (hasStakedGmx || hasStakedGlp) {
+    if (hasStakedFmx || hasStakedGlp) {
       return t`Invalid Receiver`;
     }
     if ((parsedReceiver || "").toString().toLowerCase() === (account || "").toString().toLowerCase()) {
@@ -171,7 +171,7 @@ export default function BeginAccountTransfer(props) {
       return error;
     }
     if (needApproval) {
-      return t`Approve GMX`;
+      return t`Approve FMX`;
     }
     if (isApproving) {
       return t`Approving...`;
@@ -188,8 +188,8 @@ export default function BeginAccountTransfer(props) {
       approveTokens({
         setIsApproving,
         library,
-        tokenAddress: gmxAddress,
-        spender: stakedGmxTrackerAddress,
+        tokenAddress: fmxAddress,
+        spender: stakedFmxTrackerAddress,
         chainId,
       });
       return;
@@ -236,9 +236,9 @@ export default function BeginAccountTransfer(props) {
           <Trans>
             Please only use this for full account transfers.
             <br />
-            This will transfer all your GMX, esGMX, GLP and Multiplier Points to your new account.
+            This will transfer all your FMX, esFMX, GLP and Multiplier Points to your new account.
             <br />
-            Transfers are only supported if the receiving account has not staked GMX or GLP tokens before.
+            Transfers are only supported if the receiving account has not staked FMX or GLP tokens before.
             <br />
             Transfers are one-way, you will not be able to transfer staked tokens back to the sending account.
           </Trans>
@@ -267,14 +267,14 @@ export default function BeginAccountTransfer(props) {
             </div>
           </div>
           <div className="BeginAccountTransfer-validations">
-            <ValidationRow isValid={!hasVestedGmx}>
-              <Trans>Sender has withdrawn all tokens from GMX Vesting Vault</Trans>
+            <ValidationRow isValid={!hasVestedFmx}>
+              <Trans>Sender has withdrawn all tokens from FMX Vesting Vault</Trans>
             </ValidationRow>
             <ValidationRow isValid={!hasVestedGlp}>
               <Trans>Sender has withdrawn all tokens from GLP Vesting Vault</Trans>
             </ValidationRow>
-            <ValidationRow isValid={!hasStakedGmx}>
-              <Trans>Receiver has not staked GMX tokens before</Trans>
+            <ValidationRow isValid={!hasStakedFmx}>
+              <Trans>Receiver has not staked FMX tokens before</Trans>
             </ValidationRow>
             <ValidationRow isValid={!hasStakedGlp}>
               <Trans>Receiver has not staked GLP tokens before</Trans>

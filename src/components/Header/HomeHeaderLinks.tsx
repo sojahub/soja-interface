@@ -1,5 +1,5 @@
 import { FiX } from "react-icons/fi";
-import logoImg from "img/logo_GMX.svg";
+import logoImg from "img/logo_FMX.svg";
 import { t } from "@lingui/macro";
 
 import "./Header.css";
@@ -24,19 +24,19 @@ const HOME_MENUS: HomeLink[] = [
   },
   {
     label: t`Protocol`,
-    link: "https://github.com/gmx-io",
+    link: "https://github.com/fmx-io",
   },
   {
     label: t`Governance`,
-    link: "https://gov.gmx.io/",
+    link: "https://gov.fmx.io/",
   },
   {
     label: t`Voting`,
-    link: "https://snapshot.org/#/gmx.eth",
+    link: "https://snapshot.org/#/fmx.eth",
   },
   {
     label: t`Docs`,
-    link: "https://gmxio.gitbook.io/gmx/",
+    link: "https://fmxio.gitbook.io/fmx/",
   },
 ];
 
@@ -46,7 +46,7 @@ export function HomeHeaderLinks({ small, clickCloseIcon, redirectPopupTimestamp,
       {small && (
         <div className="App-header-links-header">
           <Link className="App-header-link-main" to="/">
-            <img src={logoImg} alt="GMX Logo" />
+            <img src={logoImg} alt="FMX Logo" />
           </Link>
           <div
             className="App-header-menu-icon-block mobile-cross-menu"

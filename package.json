@@ -1,7 +1,7 @@
 {
-  "name": "gambit-interface",
+  "name": "@sojahub/gambit-interface",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@apollo/client": "3.5.6",
     "@davatar/react": "1.8.1",
@@ -111,5 +111,17 @@
       "prettier --write"
     ]
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sojahub/soja-interface.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sojahub/soja-interface/issues"
+  },
+  "homepage": "https://github.com/sojahub/soja-interface#readme"
 }

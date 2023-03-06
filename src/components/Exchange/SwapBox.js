@@ -196,12 +196,12 @@ export default function SwapBox(props) {
 
   const getLeaderboardLink = () => {
     if (chainId === ARBITRUM) {
-      return "https://www.gmx.house/arbitrum/leaderboard";
+      return "https://www.fmx.house/arbitrum/leaderboard";
     }
     if (chainId === AVALANCHE) {
-      return "https://www.gmx.house/avalanche/leaderboard";
+      return "https://www.fmx.house/avalanche/leaderboard";
     }
-    return "https://www.gmx.house";
+    return "https://www.fmx.house";
   };
 
   function getTokenLabel() {
@@ -2197,7 +2197,7 @@ export default function SwapBox(props) {
               orders. <br />
               <br />
               For screenshots and more information, please see the{" "}
-              <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#stop-loss-take-profit-orders">docs</ExternalLink>
+              <ExternalLink href="https://fmxio.gitbook.io/fmx/trading#stop-loss-take-profit-orders">docs</ExternalLink>
               .
             </Trans>
           </div>
@@ -2295,7 +2295,7 @@ export default function SwapBox(props) {
                         top right of the page after connecting your wallet.
                         <br />
                         <br />
-                        <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#opening-a-position">
+                        <ExternalLink href="https://fmxio.gitbook.io/fmx/trading#opening-a-position">
                           More Info
                         </ExternalLink>
                       </Trans>
@@ -2324,7 +2324,7 @@ export default function SwapBox(props) {
                         This exit price will change with the price of the asset.
                         <br />
                         <br />
-                        <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#opening-a-position">
+                        <ExternalLink href="https://fmxio.gitbook.io/fmx/trading#opening-a-position">
                           More Info
                         </ExternalLink>
                       </Trans>
@@ -2362,7 +2362,7 @@ export default function SwapBox(props) {
                         </div>
                       )}
                       <br />
-                      <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#opening-a-position">
+                      <ExternalLink href="https://fmxio.gitbook.io/fmx/trading#opening-a-position">
                         <Trans>More Info</Trans>
                       </ExternalLink>
                     </div>
@@ -2410,7 +2410,7 @@ export default function SwapBox(props) {
         <div className="App-card-divider"></div>
         <div className="Exchange-info-row">
           <div className="Exchange-info-label-button">
-            <ExternalLink href="https://gmxio.gitbook.io/gmx/trading">
+            <ExternalLink href="https://fmxio.gitbook.io/fmx/trading">
               <Trans>Trading guide</Trans>
             </ExternalLink>
           </div>
@@ -2424,7 +2424,7 @@ export default function SwapBox(props) {
         </div>
         <div className="Exchange-info-row">
           <div className="Exchange-info-label-button">
-            <ExternalLink href="https://gmxio.gitbook.io/gmx/trading#backup-rpc-urls">
+            <ExternalLink href="https://fmxio.gitbook.io/fmx/trading#backup-rpc-urls">
               <Trans>Speed up page loading</Trans>
             </ExternalLink>
           </div>

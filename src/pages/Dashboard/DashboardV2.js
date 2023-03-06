@@ -11,7 +11,7 @@ import { ethers } from "ethers";
 
 import {
   USD_DECIMALS,
-  GMX_DECIMALS,
+  FMX_DECIMALS,
   GLP_DECIMALS,
   BASIS_POINTS_DIVISOR,
   DEFAULT_MAX_USDG_AMOUNT,
@@ -19,7 +19,7 @@ import {
   importImage,
   arrayURLFetcher,
 } from "lib/legacy";
-import { useTotalGmxInLiquidity, useGmxPrice, useTotalGmxStaked, useTotalGmxSupply } from "domain/legacy";
+import { useTotalFmxInLiquidity, useFmxPrice, useTotalFmxStaked, useTotalFmxSupply } from "domain/legacy";
 import useFeesSummary from "domain/useFeesSummary";
 
 import { getContract } from "config/contracts";
@@ -31,7 +31,7 @@ import Footer from "components/Footer/Footer";
 
 import "./DashboardV2.css";
 
-import gmx40Icon from "img/ic_gmx_40.svg";
+import fmx40Icon from "img/ic_fmx_40.svg";
 import glp40Icon from "img/ic_glp_40.svg";
 import avalanche16Icon from "img/ic_avalanche_16.svg";
 import arbitrum16Icon from "img/ic_arbitrum_16.svg";
@@ -150,7 +150,7 @@ export default function DashboardV2() {
     }
   );
 
-  let { total: totalGmxSupply } = useTotalGmxSupply();
+  let { total: totalFmxSupply } = useTotalFmxSupply();
 
   const currentVolumeInfo = getVolumeInfo(hourlyVolumes);
 
@@ -169,11 +169,11 @@ export default function DashboardV2() {
   const vaultAddress = getContract(chainId, "Vault");
   const glpManagerAddress = getContract(chainId, "GlpManager");
 
-  const gmxAddress = getContract(chainId, "GMX");
+  const fmxAddress = getContract(chainId, "FMX");
   const glpAddress = getContract(chainId, "GLP");
   const usdgAddress = getContract(chainId, "USDG");
 
-  const tokensForSupplyQuery = [gmxAddress, glpAddress, usdgAddress];
+  const tokensForSupplyQuery = [fmxAddress, glpAddress, usdgAddress];
 
   const { data: aums } = useSWR([`Dashboard:getAums:${active}`, chainId, glpManagerAddress, "getAums"], {
     fetcher: contractFetcher(library, GlpManager),
@@ -257,24 +257,24 @@ export default function DashboardV2() {
       { total: 0 }
     );
 
-  const { gmxPrice, gmxPriceFromArbitrum, gmxPriceFromAvalanche } = useGmxPrice(
+  const { fmxPrice, fmxPriceFromArbitrum, fmxPriceFromAvalanche } = useFmxPrice(
     chainId,
     { arbitrum: chainId === ARBITRUM ? library : undefined },
     active
   );
 
-  let { total: totalGmxInLiquidity } = useTotalGmxInLiquidity(chainId, active);
+  let { total: totalFmxInLiquidity } = useTotalFmxInLiquidity(chainId, active);
 
-  let { avax: avaxStakedGmx, arbitrum: arbitrumStakedGmx, total: totalStakedGmx } = useTotalGmxStaked();
+  let { avax: avaxStakedFmx, arbitrum: arbitrumStakedFmx, total: totalStakedFmx } = useTotalFmxStaked();
 
-  let gmxMarketCap;
-  if (gmxPrice && totalGmxSupply) {
-    gmxMarketCap = gmxPrice.mul(totalGmxSupply).div(expandDecimals(1, GMX_DECIMALS));
+  let fmxMarketCap;
+  if (fmxPrice && totalFmxSupply) {
+    fmxMarketCap = fmxPrice.mul(totalFmxSupply).div(expandDecimals(1, FMX_DECIMALS));
   }
 
-  let stakedGmxSupplyUsd;
-  if (gmxPrice && totalStakedGmx) {
-    stakedGmxSupplyUsd = totalStakedGmx.mul(gmxPrice).div(expandDecimals(1, GMX_DECIMALS));
+  let stakedFmxSupplyUsd;
+  if (fmxPrice && totalStakedFmx) {
+    stakedFmxSupplyUsd = totalStakedFmx.mul(fmxPrice).div(expandDecimals(1, FMX_DECIMALS));
   }
 
   let aum;
@@ -295,8 +295,8 @@ export default function DashboardV2() {
   }
 
   let tvl;
-  if (glpMarketCap && gmxPrice && totalStakedGmx) {
-    tvl = glpMarketCap.add(gmxPrice.mul(totalStakedGmx).div(expandDecimals(1, GMX_DECIMALS)));
+  if (glpMarketCap && fmxPrice && totalStakedFmx) {
+    tvl = glpMarketCap.add(fmxPrice.mul(totalStakedFmx).div(expandDecimals(1, FMX_DECIMALS)));
   }
 
   const ethFloorPriceFund = expandDecimals(350 + 148 + 384, 18);
@@ -396,7 +396,7 @@ export default function DashboardV2() {
               )}
               <br />
               <div>
-                <ExternalLink href="https://gmxio.gitbook.io/gmx/glp">
+                <ExternalLink href="https://fmxio.gitbook.io/fmx/glp">
                   <Trans>More Info</Trans>
                 </ExternalLink>
               </div>
@@ -409,19 +409,19 @@ export default function DashboardV2() {
 
   let stakedPercent = 0;
 
-  if (totalGmxSupply && !totalGmxSupply.isZero() && !totalStakedGmx.isZero()) {
-    stakedPercent = totalStakedGmx.mul(100).div(totalGmxSupply).toNumber();
+  if (totalFmxSupply && !totalFmxSupply.isZero() && !totalStakedFmx.isZero()) {
+    stakedPercent = totalStakedFmx.mul(100).div(totalFmxSupply).toNumber();
   }
 
   let liquidityPercent = 0;
 
-  if (totalGmxSupply && !totalGmxSupply.isZero() && totalGmxInLiquidity) {
-    liquidityPercent = totalGmxInLiquidity.mul(100).div(totalGmxSupply).toNumber();
+  if (totalFmxSupply && !totalFmxSupply.isZero() && totalFmxInLiquidity) {
+    liquidityPercent = totalFmxInLiquidity.mul(100).div(totalFmxSupply).toNumber();
   }
 
   let notStakedPercent = 100 - stakedPercent - liquidityPercent;
 
-  let gmxDistributionData = [
+  let fmxDistributionData = [
     {
       name: t`staked`,
       value: stakedPercent,
@@ -472,19 +472,19 @@ export default function DashboardV2() {
     else return -1;
   });
 
-  gmxDistributionData = gmxDistributionData.sort(function (a, b) {
+  fmxDistributionData = fmxDistributionData.sort(function (a, b) {
     if (a.value < b.value) return 1;
     else return -1;
   });
 
-  const [gmxActiveIndex, setGMXActiveIndex] = useState(null);
+  const [fmxActiveIndex, setFMXActiveIndex] = useState(null);
 
-  const onGMXDistributionChartEnter = (_, index) => {
-    setGMXActiveIndex(index);
+  const onFMXDistributionChartEnter = (_, index) => {
+    setFMXActiveIndex(index);
   };
 
-  const onGMXDistributionChartLeave = (_, index) => {
-    setGMXActiveIndex(null);
+  const onFMXDistributionChartLeave = (_, index) => {
+    setFMXActiveIndex(null);
   };
 
   const [glpActiveIndex, setGLPActiveIndex] = useState(null);
@@ -524,9 +524,9 @@ export default function DashboardV2() {
               <Trans>
                 {chainName} Total Stats start from {totalStatsStartDate}.<br /> For detailed stats:
               </Trans>{" "}
-              {chainId === ARBITRUM && <ExternalLink href="https://stats.gmx.io">https://stats.gmx.io</ExternalLink>}
+              {chainId === ARBITRUM && <ExternalLink href="https://stats.fmx.io">https://stats.fmx.io</ExternalLink>}
               {chainId === AVALANCHE && (
-                <ExternalLink href="https://stats.gmx.io/avalanche">https://stats.gmx.io/avalanche</ExternalLink>
+                <ExternalLink href="https://stats.fmx.io/avalanche">https://stats.fmx.io/avalanche</ExternalLink>
               )}
               .
             </div>
@@ -549,7 +549,7 @@ export default function DashboardV2() {
                       handle={`$${formatAmount(tvl, USD_DECIMALS, 0, true)}`}
                       position="right-bottom"
                       renderContent={() => (
-                        <span>{t`Assets Under Management: GMX staked (All chains) + GLP pool (${chainName}).`}</span>
+                        <span>{t`Assets Under Management: FMX staked (All chains) + GLP pool (${chainName}).`}</span>
                       )}
                     />
                   </div>
@@ -733,20 +733,20 @@ export default function DashboardV2() {
             </div>
           </div>
           <div className="DashboardV2-token-cards">
-            <div className="stats-wrapper stats-wrapper--gmx">
+            <div className="stats-wrapper stats-wrapper--fmx">
               <div className="App-card">
                 <div className="stats-block">
                   <div className="App-card-title">
                     <div className="App-card-title-mark">
                       <div className="App-card-title-mark-icon">
-                        <img src={gmx40Icon} alt="GMX Token Icon" />
+                        <img src={fmx40Icon} alt="FMX Token Icon" />
                       </div>
                       <div className="App-card-title-mark-info">
-                        <div className="App-card-title-mark-title">GMX</div>
-                        <div className="App-card-title-mark-subtitle">GMX</div>
+                        <div className="App-card-title-mark-title">FMX</div>
+                        <div className="App-card-title-mark-subtitle">FMX</div>
                       </div>
                       <div>
-                        <AssetDropdown assetSymbol="GMX" />
+                        <AssetDropdown assetSymbol="FMX" />
                       </div>
                     </div>
                   </div>
@@ -757,22 +757,22 @@ export default function DashboardV2() {
                         <Trans>Price</Trans>
                       </div>
                       <div>
-                        {!gmxPrice && "..."}
-                        {gmxPrice && (
+                        {!fmxPrice && "..."}
+                        {fmxPrice && (
                           <TooltipComponent
                             position="right-bottom"
                             className="nowrap"
-                            handle={"$" + formatAmount(gmxPrice, USD_DECIMALS, 2, true)}
+                            handle={"$" + formatAmount(fmxPrice, USD_DECIMALS, 2, true)}
                             renderContent={() => (
                               <>
                                 <StatsTooltipRow
                                   label={t`Price on Arbitrum`}
-                                  value={formatAmount(gmxPriceFromArbitrum, USD_DECIMALS, 2, true)}
+                                  value={formatAmount(fmxPriceFromArbitrum, USD_DECIMALS, 2, true)}
                                   showDollar={true}
                                 />
                                 <StatsTooltipRow
                                   label={t`Price on Avalanche`}
-                                  value={formatAmount(gmxPriceFromAvalanche, USD_DECIMALS, 2, true)}
+                                  value={formatAmount(fmxPriceFromAvalanche, USD_DECIMALS, 2, true)}
                                   showDollar={true}
                                 />
                               </>
@@ -785,7 +785,7 @@ export default function DashboardV2() {
                       <div className="label">
                         <Trans>Supply</Trans>
                       </div>
-                      <div>{formatAmount(totalGmxSupply, GMX_DECIMALS, 0, true)} GMX</div>
+                      <div>{formatAmount(totalFmxSupply, FMX_DECIMALS, 0, true)} FMX</div>
                     </div>
                     <div className="App-card-row">
                       <div className="label">
@@ -795,14 +795,14 @@ export default function DashboardV2() {
                         <TooltipComponent
                           position="right-bottom"
                           className="nowrap"
-                          handle={`$${formatAmount(stakedGmxSupplyUsd, USD_DECIMALS, 0, true)}`}
+                          handle={`$${formatAmount(stakedFmxSupplyUsd, USD_DECIMALS, 0, true)}`}
                           renderContent={() => (
                             <StatsTooltip
                               title={t`Staked`}
-                              arbitrumValue={arbitrumStakedGmx}
-                              avaxValue={avaxStakedGmx}
-                              total={totalStakedGmx}
-                              decimalsForConversion={GMX_DECIMALS}
+                              arbitrumValue={arbitrumStakedFmx}
+                              avaxValue={avaxStakedFmx}
+                              total={totalStakedFmx}
+                              decimalsForConversion={FMX_DECIMALS}
                               showDollar={false}
                             />
                           )}
@@ -813,15 +813,15 @@ export default function DashboardV2() {
                       <div className="label">
                         <Trans>Market Cap</Trans>
                       </div>
-                      <div>${formatAmount(gmxMarketCap, USD_DECIMALS, 0, true)}</div>
+                      <div>${formatAmount(fmxMarketCap, USD_DECIMALS, 0, true)}</div>
                     </div>
                   </div>
                 </div>
-                <div className="stats-piechart" onMouseLeave={onGMXDistributionChartLeave}>
-                  {gmxDistributionData.length > 0 && (
+                <div className="stats-piechart" onMouseLeave={onFMXDistributionChartLeave}>
+                  {fmxDistributionData.length > 0 && (
                     <PieChart width={210} height={210}>
                       <Pie
-                        data={gmxDistributionData}
+                        data={fmxDistributionData}
                         cx={100}
                         cy={100}
                         innerRadius={73}
@@ -831,23 +831,23 @@ export default function DashboardV2() {
                         startAngle={90}
                         endAngle={-270}
                         paddingAngle={2}
-                        onMouseEnter={onGMXDistributionChartEnter}
-                        onMouseOut={onGMXDistributionChartLeave}
-                        onMouseLeave={onGMXDistributionChartLeave}
+                        onMouseEnter={onFMXDistributionChartEnter}
+                        onMouseOut={onFMXDistributionChartLeave}
+                        onMouseLeave={onFMXDistributionChartLeave}
                       >
-                        {gmxDistributionData.map((entry, index) => (
+                        {fmxDistributionData.map((entry, index) => (
                           <Cell
                             key={`cell-${index}`}
                             fill={entry.color}
                             style={{
                               filter:
-                                gmxActiveIndex === index
+                                fmxActiveIndex === index
                                   ? `drop-shadow(0px 0px 6px ${hexToRgba(entry.color, 0.7)})`
                                   : "none",
                               cursor: "pointer",
                             }}
                             stroke={entry.color}
-                            strokeWidth={gmxActiveIndex === index ? 1 : 1}
+                            strokeWidth={fmxActiveIndex === index ? 1 : 1}
                           />
                         ))}
                       </Pie>

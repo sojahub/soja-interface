@@ -18,7 +18,7 @@ function Jobs() {
               <Trans>Jobs</Trans>
             </div>
             <div className="Page-description">
-              <Trans>Job openings at GMX.</Trans>
+              <Trans>Job openings at FMX.</Trans>
             </div>
           </div>
         </div>
@@ -33,12 +33,12 @@ function Jobs() {
 
 function NoJob() {
   return (
-    <Card title={t`No open positions at GMX currently`}>
+    <Card title={t`No open positions at FMX currently`}>
       <div className="body-para">
         <p className="subheading">
           <Trans>
-            GMX is not actively looking for new hires at the moment. However, if you think you can contribute to the
-            project, please email <ExternalLink href="mailto:jobs@gmx.io">jobs@gmx.io</ExternalLink>.
+            FMX is not actively looking for new hires at the moment. However, if you think you can contribute to the
+            project, please email <ExternalLink href="mailto:jobs@fmx.io">jobs@fmx.io</ExternalLink>.
           </Trans>
         </p>
       </div>
@@ -52,7 +52,7 @@ function NoJob() {
 //   <div className="body-para">
 //     <p className="subheading">What you will do:</p>
 //     <ul>
-//       <li>Work closely with the GMX team on the GMX front-end website.</li>
+//       <li>Work closely with the FMX team on the FMX front-end website.</li>
 //       <li>Collaborate and discuss features to be worked on.</li>
 //       <li>Remote full-time position, flexible working hours.</li>
 //     </ul>
@@ -66,11 +66,11 @@ function NoJob() {
 //         <li>Must speak fluent English and available to start right away.</li>
 //         <li>Comfortable making changes to the interface following our current design guidelines.</li>
 //       </ul>
-//       <p>The salary is 60,000 to 120,000 USD + 1,000 to 3,000 GMX a year.</p>
+//       <p>The salary is 60,000 to 120,000 USD + 1,000 to 3,000 FMX a year.</p>
 //       <p className="jobs-contact">
 //         If the job suits you, please get in touch with{" "}
-//         <a target="_blank" href="mailto:jobs@gmx.io" rel="noopener noreferrer">
-//           jobs@gmx.io
+//         <a target="_blank" href="mailto:jobs@fmx.io" rel="noopener noreferrer">
+//           jobs@fmx.io
 //         </a>{" "}
 //         using the following email subject: Application for Senior front-end developer: [Your name]
 //       </p>
